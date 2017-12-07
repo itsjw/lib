@@ -1,0 +1,55 @@
+4：模块化开发规范     AMD和CMD规范
+AMD是require所倡导的模块化开发的方式。遵循AMD规范的还有一个叫CommonJS的，不过还是和requireJS有些区别，主要针对NODE后端开发。
+另外还有一个大名鼎鼎的SeaJS，作者是淘宝的玉伯，于是诞生了CMD规范，根据作者自己的介绍，SeaJS各方面都比requireJS强大。这个就不做评价了。
+区别：
+AMD推崇的是依赖前置。
+
+CMD推崇的是依赖就近。
+
+当然requireJS也支持CMD的写法，不过作者本人是不推荐这么写的。
+
+九、模块和包管理工具
+	commonJS规范
+		根据这个规范，每个文件就是一个模块，有自己的作用域。在一个文件里面定义的变量、函数、类，都是私有的，对其他文件不可见。
+		
+		依赖关系							定义    .js文件
+					      
+		命名空间		纠结的编程体验			暴露接口
+		
+		代码组织							引用
+		
+		
+		modules/pakages/system/filestems/binary/console/encodings/sockets/unit test...
+		
+		不同于jQuery，CommonJs是一套规范
+		
+	规范与实现的互为促进
+		nodeJS、Webpack都基于CommonJS规范,区别于AMD/CMD---require.js/sea.js
+		
+	使用npm install 来安装模块
+		使用镜像安装  cnpm install 
+	
+	案例展现
+		
+十、NPM使用
+	全局安装：相当于windows系统环境变量的配置
+	本地安装：不加后缀
+	安装：install
+	卸载：uninstall
+	安装模块：npm install n -g
+	升级node：n stable
+	安装Forever：cnpm install forever -g
+	本地安装underscore：cnpm install underscore
+	查看模块版本号：cnpm info underscore
+	选择版本安装：cnpm install underscore@1.0.3
+	查看安装了那些模块：cnpm list
+	如何管理模块package:cnpm init
+		dependencies:项目依赖，通过--save加进去
+		devDependencies：开发依赖，线上不需要---通过--dev加进去
+	删除node_modules文件夹，执行命令 cnpm install
+	只查看安装模块的中某一个模块的信息：cnpm list | grep gulp
+	查看版本标识:cnpm outdated
+	nrm模块--选择和切入源：cnpm install nrm -g
+		nrm list
+			nrm test----测试速度
+			nrm use npm

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{padding: 0;margin: 0;list-style: none;}
+			.nav_box{
+				margin-left: 120px;
+				position: relative;
+			}
+			.nav{position: absolute;left:0;width: 120px;}
+			.nav li{
+				width: 120px;
+				height:60px;
+				line-height: 60px;
+				border-bottom: 1px solid #ccc;
+			}
+			.navDetail{
+				position: absolute;
+				left:120px;
+			}
+			.navDetail .n-d{
+				display: none;
+				width: 400px;
+				height: 300px;
+				border: 1px solid #f66;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="nav_box">
+			<ul class="nav">
+				<li>11111</li>
+				<li>22222</li>
+				<li>33333</li>
+				<li>44444</li>
+				<li>55555</li>
+				<li>66666</li>
+			</ul>
+			<div class="navDetail">
+				<div class="n-d">
+					11111111
+				</div>
+				<div class="n-d" >
+					2222222
+				</div>
+				<div  class="n-d">
+					333333
+				</div>
+				<div  class="n-d">
+					444444
+				</div>
+				<div  class="n-d">
+					55555
+				</div>
+				<div  class="n-d">
+					6666666
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(".nav").find("li").hover(function(){
+			var index = $(this).index();
+			$(".navDetail").find(".n-d").eq(index).fadeIn(0).siblings().fadeOut(0);
+		},function(){
+			
+		})
+		$(".nav_box").on("mouseleave",function(){
+			$(".navDetail").find(".n-d").fadeOut(0)
+		})
+	</script>
+</html>

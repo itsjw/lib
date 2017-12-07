@@ -1,0 +1,34 @@
+mongodb
+https://www.mongodb.com/download-center?jmp=nav#community 
+
+  1、下载安装mongdb，一定要记住安装目录
+    我的目录D:\Program Files\MongoDB
+    需要的是目录： D:\Program Files\MongoDB\Server\3.4\bin
+  找到一个新的根目录，创建一个文件夹data，在data中再创建一个db
+  f:\data\db
+  在data文件夹中创建一个startMongo.bat文件，再创建一个文件mongo.bat文件
+  .bat文件称之为快速执行文件
+  
+  创建一个test.txt文件-编码格式utf-8无BOM格式
+  d:
+  cd D:\Program Files\MongoDB\Server\3.4\bin
+  mongod -dbpath f:\data\db
+  另存为startMongo.bat
+    双击bat文件，打开数据库的链接池
+      waiting for connections on port 27017
+      
+   编辑数据库
+   修改test.txt
+    d:
+    cd D:\Program Files\MongoDB\Server\3.4\bin
+    mongo
+  另存为mongo.bat
+    双击打开即可，就可以编辑数据库
+    >
+	
+
+可视化工具Robomongo安装   ------Robo 3T
+https://robomongo.org/
+
+— Renaming Robomongo to Robo 3T
+http://blog.robomongo.org/robomongo-is-robo-3t/

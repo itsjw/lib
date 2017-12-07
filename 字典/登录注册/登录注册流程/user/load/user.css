@@ -1,0 +1,15 @@
+form input {
+  display: block;
+  background-color: #f66;
+  border: 0px solid #000;
+  margin-top: 10px;
+  width: 50%;
+  height: 50px;
+  text-indent: 15px;
+  font-size: 24px;
+}
+form input#registerBtn {
+  color: #fff;
+  cursor: ;
+}
+/*# sourceMappingURL=user.css.map */

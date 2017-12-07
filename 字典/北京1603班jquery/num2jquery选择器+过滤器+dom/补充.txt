@@ -1,0 +1,76 @@
+querySelectorAll与getElementsBy对比有什么不同
+javascript中的querySelectorAll与getElementsBy都可以获取dom元素对象，但是他们又有什么不同点呢？
+1. W3C 标准
+
+querySelectorAll 属于 W3C 中的 Selectors API 规范。而 getElementsBy 系列则属于 W3C 的 DOM 规范。
+2. 浏览器兼容
+
+querySelectorAll 已被 IE 8+、FF 3.5+、Safari 3.1+、Chrome 和 Opera 10+ 良好支持 。
+getElementsBy 系列，以最迟添加到规范中的 getElementsByClassName 为例，IE 9+、FF 3 +、Safari 3.1+、Chrome 和 Opera 9+ 都已经支持该方法了。
+
+3. 接收参数
+
+querySelectorAll 方法接收的参数是一个 CSS 选择符。而 getElementsBy 系列接收的参数只能是单一的className、tagName 和 name。代码如下：
+ 代码如下 	复制代码
+var c1 = document.querySelectorAll('.b1 .c');
+var c2 = document.getElementsByClassName('c');
+var c3 = document.getElementsByClassName('b2')[0].getElementsByClassName('c');
+
+querySelector 和 querySelectorAll 方法是 W3C Selectors API 规范中定义的。他们的作用是根据 CSS 选择器规范，便捷定位文档中指定元素。
+目前几乎主流浏览器均支持了他们。包括 IE8(含) 以上版本、 Firefox、 Chrome、Safari、Opera。
+
+querySelector 和 querySelectorAll 方法很好用，可惜IE6、IE7不支持，怎么让IE6、IE7也支持querySelectorAll和querySelector这两个方法呢，请看下面的代码：
+if (!document.querySelectorAll) {
+    document.querySelectorAll = function (selectors) {
+        var style = document.createElement('style'), elements = [], element;
+        document.documentElement.firstChild.appendChild(style);
+        document._qsa = [];
+
+        style.styleSheet.cssText = selectors + '{x-qsa:expression(document._qsa && document._qsa.push(this))}';
+        window.scrollBy(0, 0);
+        style.parentNode.removeChild(style);
+
+        while (document._qsa.length) {
+            element = document._qsa.shift();
+            element.style.removeAttribute('x-qsa');
+            elements.push(element);
+        }
+        document._qsa = null;
+        return elements;
+    };
+}
+
+if (!document.querySelector) {
+    document.querySelector = function (selectors) {
+        var elements = document.querySelectorAll(selectors);
+        return (elements.length) ? elements[0] : null;
+    };
+}
+
+// 用于在IE6和IE7浏览器中，支持Element.querySelectorAll方法
+var qsaWorker = (function () {
+    var idAllocator = 10000;
+
+    function qsaWorkerShim(element, selector) {
+        var needsID = element.id === "";
+        if (needsID) {
+            ++idAllocator;
+            element.id = "__qsa" + idAllocator;
+        }
+        try {
+            return document.querySelectorAll("#" + element.id + " " + selector);
+        }
+        finally {
+            if (needsID) {
+                element.id = "";
+            }
+        }
+    }
+
+    function qsaWorkerWrap(element, selector) {
+        return element.querySelectorAll(selector);
+    }
+
+    // Return the one this browser wants to use
+    return document.createElement('div').querySelectorAll ? qsaWorkerWrap : qsaWorkerShim;
+})();

@@ -1,0 +1,4 @@
+
+http://www.jianshu.com/p/09ffac7a3b2c
+
+AMD,CMD,CommonJS是目前最常用的三种模块化书写规范。

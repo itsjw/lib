@@ -1,0 +1,83 @@
+通过 jQuery，可以使用 hide() 和 show() 方法来隐藏和显示 HTML 元素：
+
+实例
+$("#hide").click(function(){
+  $("p").hide();
+});
+ 
+$("#show").click(function(){
+  $("p").show();
+});
+语法:
+$(selector).hide(speed,callback);
+
+$(selector).show(speed,callback);
+可选的 speed 参数规定隐藏/显示的速度，可以取以下值："slow"、"fast" 或毫秒。
+可选的 callback 参数是隐藏或显示完成后所执行的函数名称。
+
+通过 jQuery，您可以使用 toggle() 方法来切换 hide() 和 show() 方法。
+显示被隐藏的元素，并隐藏已显示的元素：
+实例
+$("button").click(function(){
+  $("p").toggle();
+});
+
+
+语法:
+$(selector).toggle(speed,callback);
+可选的 speed 参数规定隐藏/显示的速度，可以取以下值："slow"、"fast" 或毫秒。
+可选的 callback 参数是隐藏或显示完成后所执行的函数名称。
+
+jQuery 滑动方法
+通过 jQuery，您可以在元素上创建滑动效果。
+jQuery 拥有以下滑动方法：
+slideDown()
+slideUp()
+slideToggle()
+jQuery slideDown() 方法
+jQuery slideDown() 方法用于向下滑动元素。
+语法:
+$(selector).slideDown(speed,callback);
+可选的 speed 参数规定效果的时长。它可以取以下值："slow"、"fast" 或毫秒。
+可选的 callback 参数是滑动完成后所执行的函数名称。
+下面的例子演示了 slideDown() 方法：
+实例
+$("#flip").click(function(){
+  $("#panel").slideDown();
+});
+
+尝试一下 ?
+
+jQuery slideUp() 方法
+jQuery slideUp() 方法用于向上滑动元素。
+语法:
+$(selector).slideUp(speed,callback);
+可选的 speed 参数规定效果的时长。它可以取以下值："slow"、"fast" 或毫秒。
+可选的 callback 参数是滑动完成后所执行的函数名称。
+下面的例子演示了 slideUp() 方法：
+实例
+$("#flip").click(function(){
+  $("#panel").slideUp();
+});
+
+尝试一下 ?
+
+jQuery slideToggle() 方法
+jQuery slideToggle() 方法可以在 slideDown() 与 slideUp() 方法之间进行切换。
+如果元素向下滑动，则 slideToggle() 可向上滑动它们。
+如果元素向上滑动，则 slideToggle() 可向下滑动它们。
+$(selector).slideToggle(speed,callback);
+可选的 speed 参数规定效果的时长。它可以取以下值："slow"、"fast" 或毫秒。
+可选的 callback 参数是滑动完成后所执行的函数名称。
+下面的例子演示了 slideToggle() 方法：
+实例
+$("#flip").click(function(){
+  $("#panel").slideToggle();
+});
+jQuery 动画 - animate() 方法
+jQuery animate() 方法用于创建自定义动画。
+语法：
+$(selector).animate({params},speed,callback);
+必需的 params 参数定义形成动画的 CSS 属性。
+可选的 speed 参数规定效果的时长。它可以取以下值："slow"、"fast" 或毫秒。
+可选的 callback 参数是动画完成后所执行的函数名称。

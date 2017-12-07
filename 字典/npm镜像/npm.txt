@@ -1,0 +1,3 @@
+http://riny.net/2014/cnpm/
+
+国内优秀npm镜像推荐及使用 - Bubblings Blog

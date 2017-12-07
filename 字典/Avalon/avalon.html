@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title></title>
+		<script src="https://unpkg.com/avalon2@2.2.8/dist/avalon.js"></script>
+	</head>
+	<body>
+		<div ms-controller="wrap">{{a}}
+			<input ms-duplex="a" type="text" />
+		</div>
+	</body>
+	<script type="text/javascript">
+		var abc = avalon.define({
+			$id:"wrap",
+			a:"你好啊"
+		});
+		
+	</script>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+			
+       META标签是HTML标记HEAD区的一个关键标签， 它位于HTML文档的 < head > 和 < title > 
+        之间（ 有些也不是在 < head > 和 < title > 之间）。
+        	
+              它提供的信息虽然用户不可见， 但却是文档的最基本的元信息。< meta > 除了提供文档字符集、
+        使用语言、 作者等基本信息外， 还涉及对关键词和网页等级的设定。
+        
+	       所以有关搜索引擎注册、 搜索引擎优化排名等网络营销方法内容中， 通常都要谈论META标签的作用， 
+	我们甚至可以说， META标签的内容设计对于搜索引擎营销来说是至关重要的一个因素， 合理利用 Meta 
+	标签的 Description 和Keywords 属性， 加入网站的关键字或者网页的关键字， 可使网站更加贴近用
+	户体验。
+		
+		
+		
+		                  content:页面描述
+		
+	1.	<!-- 声明文档使用的字符编码 -->
+		<meta charset='utf-8'>
+		      charset：字符编码
+		      
+	2.	<!-- 优先使用 IE 最新版本和 Chrome -->           
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+		                                     采用何种IE版本去渲染网页
+		                   content:页面描述
+		
+	3.	<!-- 页面描述 -->
+		<meta name="description" content="不超过150个字符" />
+		            description:描述
+		
+		
+	4.	<!-- 页面关键词 -->
+		<meta name="keywords" content="" />
+		
+		            keywords:关键词
+		
+		
+	5.	<!-- 网页作者 -->
+		<meta name="author" content="name, email@gmail.com" />
+		            author：作者
+		
+		
+		
+	6.	<!-- 搜索引擎抓取 -->
+		<meta name="robots" content="index,follow" />
+		            robots：机器人       index：指标，follow：跟随。
+		
+		
+		
+	7.	<!-- 为移动设备添加 viewport -->
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=3, minimum-scale=1, user-scalable=no">
+		           viewport：可视窗口。
+		
+		
+		
+        <!-- iOS 设备 begin -->
+	8.	<meta name="apple-mobile-web-app-title" content="标题">
+		                         苹果手机移动应用标题
+		
+		
+	9.	<!-- 是否启用 WebApp 全屏模式，删除苹果默认的工具栏和菜单栏 -->
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+                                      设置Web应用是否以全屏模式运行
+
+
+    10.	<!-- 添加智能 App 广告条 Smart App Banner（iOS 6+ Safari） -->
+	    <meta name="apple-itunes-app" content="app-id=myAppStoreID, affiliate-data=myAffiliateData, app-argument=myURL">
+
+		
+		
+	11. 	<!-- 设置苹果工具栏颜色 -->
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		                        苹果工具栏风格
+		
+		
+	12. 	<!-- 忽略页面中的数字识别为电话，忽略email识别 -->
+		<meta name="format-detection" content="telphone=no, email=no" />
+			        format-detection：格式探察
+			
+			
+			
+	13. 	<!-- 启用360浏览器的极速模式(webkit) -->
+		<meta name="renderer" content="webkit">
+		           renderer：渲染器
+			
+			
+			
+	14. 	<!-- 避免IE使用兼容模式 -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		               Compatible：兼容的
+			
+			
+			
+	15. 	<!-- 不让百度转码 -->
+		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		         
+			
+			
+			
+	16. 	<!-- 针对手持设备优化，主要是针对一些老的不识别viewport的浏览器，比如黑莓 -->
+		<meta name="HandheldFriendly" content="true">
+		
+			
+			
+			
+	17. 	<!-- 微软的老式浏览器 -->
+		<meta name="MobileOptimized" content="320">
+		
+			
+			
+	18. 	<!-- uc强制竖屏 -->
+		<meta name="screen-orientation" content="portrait">
+		         screen-orientation：屏幕方向   
+			
+			
+			
+	19. <!-- UC强制全屏 -->
+		<meta name="full-screen" content="yes">
+		          full-screen：全屏幕
+	
+		
+			
+			
+	20.  <!-- UC应用模式 -->
+		<meta name="browsermode" content="application">
+		
+		
+		
+			
+	21. 	<!-- QQ强制全屏 -->
+		<meta name="x5-fullscreen" content="true">
+	         x5
+	
+	
+	 22.   <!-- QQ强制竖屏 -->
+		<meta name="x5-orientation" content="portrait">
+		
+			
+			
+	23. <!-- QQ应用模式 -->
+		<meta name="x5-page-mode" content="app">	
+		
+			
+			
+	24. 	<!-- windows phone 点击无高光 -->
+		<meta name="msapplication-tap-highlight" content="no">
+
+
+		<!-- sns 社交标签 begin -->
+  25.	<meta property="og:type" content="类型" />      property：性质  
+		<meta property="og:url" content="URL地址" />
+		<meta property="og:title" content="标题" />
+		<meta property="og:image" content="图片" />
+		<meta property="og:description" content="描述" />
+		<!-- sns 社交标签 end -->
+	</body>
+</html>

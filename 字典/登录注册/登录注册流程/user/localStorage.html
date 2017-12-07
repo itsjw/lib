@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" name="addbtn" id="addbtn" value="增加" />
+		<input type="button" name="removebtn" id="removebtn" value="删除" />
+		
+	</body>
+	<script type="text/javascript">
+		var index = 0;
+		//localStorage:本地存储的，可以永久的存储，字符串
+		//增/改
+		document.getElementById("addbtn").onclick = function(){
+			index++;
+			localStorage.setItem("userName","wxx1111111"+index);		
+		}
+		
+		//删
+		document.getElementById("removebtn").onclick = function(){
+			localStorage.removeItem("userName");
+		}
+		
+		
+		
+		
+		
+	</script>
+</html>

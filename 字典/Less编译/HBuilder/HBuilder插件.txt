@@ -1,0 +1,1 @@
+HBuilder 安装目录 plugins文件夹下 粘贴替换 两个文件jar

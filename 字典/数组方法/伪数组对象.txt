@@ -1,0 +1,54 @@
+//伪数组   把伪数组转为数组
+			
+			var obj = {0:100,1:300,length:2};
+			console.log(obj)
+			console.log([1,2,3,4,4,4])
+			for(var i=0;i<obj.length;i++){
+				console.log(obj[i]);
+			}
+			
+		    var arr =  Array.from(obj);
+		    console.log(arr);
+/*
+* 伪数组转标准数组：
+* Array.prototype.slice.call( 数据 ) 
+* */
+
+//伪数组   把伪数组转为数组
+			
+			var obj = {0:100,1:300,length:2};
+			console.log(obj)
+			console.log([1,2,3,4,4,4])
+			for(var i=0;i<obj.length;i++){
+				console.log(obj[i]);
+			}
+			
+		    var arr =  Array.from(obj);
+		    console.log(arr);
+		    
+		    var arr01 = Array.prototype.slice.call(obj);
+			console.log(arr01);//a
+			
+			var arr02 =  [].slice.call(obj);
+			console.log(arr02);//a
+		    
+伪数组的 slice 的内部实现过程为：
+
+function slice(start, end) {
+    var len = ToUint32(this.length), result = [];
+    for(var i = start; i < end; i++) {
+        result.push(this[i]);
+    }
+    return result;
+}
+
+   可以看出，slice 并不需要 this 为 array 类型，只需要有 length 属性即可。并且 length 属性可以不为 number 类型，当不能转换为数值时，ToUnit32(this.length) 返回 0.
+
+
+根据以上结论可以得出：fakeArray01被转换成了lenth为2的数组，其值都被初始化为undefined,fakeArray02被转换成了length为0的数组，自然访问下标为1的元素返回undefined
+
+可以通过Array.prototype.slice.call(fakeArray)将伪数组转变为真正的Array对象。
+var arr01 = Array.prototype.slice.call(fakeArray01);
+alert(arr01[0]);//a
+var arr02 =  [].slice.call(fakeArray01);
+alert(arr02[0]);//a

@@ -1,0 +1,35 @@
+{
+	"banner1":[{
+		"id":1,"imgSrc":"img/banner1.jpg","href":"http://www.baidu.com"
+	},{
+		"id":2,"imgSrc":"img/banner2.jpg","href":"http://www.baidu.com"
+	},{
+		"id":3,"imgSrc":"img/banner3.jpg","href":"http://www.baidu.com"
+	}],
+	"banner2":[{
+		"id":1,"imgSrc":"img/banner1.jpg","href":"http://www.baidu.com"
+	},{
+		"id":2,"imgSrc":"img/banner2.jpg","href":"http://www.baidu.com"
+	},{
+		"id":3,"imgSrc":"img/banner3.jpg","href":"http://www.baidu.com"
+	},{
+		"id":4,"imgSrc":"img/banner2.jpg","href":"http://www.baidu.com"
+	},{
+		"id":5,"imgSrc":"img/banner3.jpg","href":"http://www.baidu.com"
+	},{
+		"id":6,"imgSrc":"img/banner2.jpg","href":"http://www.baidu.com"
+	},{
+		"id":7,"imgSrc":"img/banner3.jpg","href":"http://www.baidu.com"
+	}],
+	"banner3":[{
+		"id":1,"imgSrc":"img/banner1.jpg","href":"http://www.baidu.com"
+	},{
+		"id":2,"imgSrc":"img/banner2.jpg","href":"http://www.baidu.com"
+	},{
+		"id":3,"imgSrc":"img/banner3.jpg","href":"http://www.baidu.com"
+	}],
+	"proList":[{
+		"proId":"pro0","proName":"产品1","proPrice":13,"proNum":100,"dec":"这就是产品的描述",
+		"imgUrl":["img/**.jpg","img/**.jpg","img/**.jpg","img/**.jpg"]
+	}]
+}

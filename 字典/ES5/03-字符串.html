@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			
+			
+			var str = 'nihao';
+			var str1 = new String('哈哈');
+			
+			console.log(str.length);
+			console.log(str1.length)
+			
+			console.log(str[0]);
+			console.log(str1[0])
+			
+			for(var i=0;i<str.length;i++){
+				console.log(str[i])
+				console.log(str.charAt(i));
+			}
+			
+			
+			console.log(str.indexOf('xx'));
+			console.log(str.search('ha'))
+			
+			
+			var str3 = 'nihao ni'
+			console.log(str3.replace('ni','xx'))
+			console.log(str3)
+			
+			
+			var str4 = '垃圾，送人头,垃圾' 
+			//辣鸡      垃圾
+			
+//			str4 = str4.replace('垃圾','***');
+
+//正则表达式  描述字符串 长什么样子
+
+
+			//敏感词过滤
+			str4 = str4.replace(/垃圾/g,'***');
+			
+			console.log(str4);
+			
+			
+			var arr = ['垃圾','傻逼','废物','智障','脑残','小学生'];
+			
+			var str5 = '垃圾，会不会玩啊，大傻逼！小学生吗？tmp';
+			for(var i=0;i<arr.length;i++){
+				var tmp = arr[i];
+				
+				//创建正则表达式
+				var  regExp = new RegExp(tmp,'g');
+				
+				str5 =  str5.replace(regExp,'**');
+
+//				str5 =  str5.replace(/tmp/g,'**');
+				
+			}
+			console.log(str5);
+			
+			
+			
+			
+		var str6 = '你妹,uck,你大爷';
+		var tmpArray = str6.split(',');//分隔字符串
+		console.log(tmpArray)
+		
+		var des = '你妹啊，xxx速度速度，收到';
+		
+		
+		
+		var str7 = 'nihao';
+		console.log(str7.slice(0,2));
+		
+		console.log(str7.toUpperCase())
+		console.log(str7.toLowerCase())
+		
+			
+			
+
+		var str8 = 'abc';
+		console.log(str8.charCodeAt(0));//获取0位置的编码
+
+		var box = String.fromCharCode(97);
+		console.log(box);
+		
+		
+		console.log('a' < 'b');//false
+		
+		
+		
+		
+		
+
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

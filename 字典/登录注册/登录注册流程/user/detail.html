@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/layout.css"/>
+	</head>
+	<body>
+		<div class="proDetail" id="proDetail">
+			<div class="proImg" >
+				<img src="img/banner.jpg" id="proImg"/>
+			</div>
+			<div class="proInfo">
+				<p class="proName" id="proName">产品</p>
+				<p class="proPrice" id="proPrice">￥123</p>
+				<input type="button" name="reduce" id="reduce" value="－" />
+				<input type="text" name="num" id="num" value="1" />
+				<input type="button" name="add" id="add" value="+" />
+				<input type="button" name="addCar" id="addCar" value="加入购物车" />
+			</div>
+			<a href="shopCar.html">购物车</a>
+		</div>
+	</body>
+	<script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+//		alert(localStorage.getItem("proActiveID"));
+		var proActiveID = localStorage.getItem("proActiveID");
+		$.getJSON("data/pro.json",function(data){
+//			$("#proDetail").html('<div class="proImg">'+
+//				'<img src="'+data[proActiveID].proImg+'"/>'+
+//			'</div>'+
+//			'<div class="proInfo">'+
+//				'<p class="proName">'+data[proActiveID].proName+'</p>'+
+//				'<p class="proName">￥'+data[proActiveID].proPrice+'</p>'+
+//				'<input type="button" name="addCar" id="addCar" value="加入购物车" />'+
+//			'</div>')
+			$("#proImg").attr("src",data[proActiveID].proImg);
+			$("#proName").html(data[proActiveID].proName);
+			$("#proPrice").html("￥"+data[proActiveID].proPrice);
+			$("#addCar").attr("goodsID",proActiveID);
+			$("#reduce").attr("goodsID",proActiveID);
+			$("#num").attr("goodsID",proActiveID);
+			$("#add").attr("goodsID",proActiveID);
+		})
+		
+		
+		$("#addCar").on("click",function(){
+//			alert($(this).attr("goodsID"));
+			var num = $("#num").val();
+//			var carData = new Object();
+//			carData.id = $(this).attr("goodsID");
+//			carData.num= num;
+//			console.log(carData)
+//			//对象准换成字符串
+//			var str = JSON.stringify(carData);
+//			console.log(str)
+//			localStorage.setItem("shopCarData",str);
+			var data = '{"id":'+$(this).attr("goodsID")+',"num":"1"}';
+			if(localStorage.getItem("shopCarData")){
+				var str = localStorage.getItem("shopCarData");
+				str += ","+data;
+				localStorage.setItem("shopCarData",str);
+				console.log(str);
+			}else{
+				localStorage.setItem("shopCarData",data);
+			}
+		})
+	</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title></title>
+		<script src="https://unpkg.com/avalon2@2.2.8/dist/avalon.js"></script>
+		<script type="text/javascript">
+			var vm = avalon.define({
+				$id:'test',
+				name:'mptdasdaa',
+				array:[1,2,3,4,5,6]
+			})
+			
+			setTimeout(function(){
+				vm.array.set(0,444)
+			},3000)
+			
+		</script>
+	</head>
+	<body ms-controller="test">
+		
+		<input type="text" ms-duplex="@name" />
+		<p>Hello,{{@name}}</p>
+		
+		
+		<ul>
+			<li ms-for="($index,el) in @array">{{$index}---{{el}}</li>
+		</ul>
+		
+	</body>
+	
+</html>

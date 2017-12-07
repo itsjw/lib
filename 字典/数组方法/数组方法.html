@@ -1,0 +1,130 @@
+<!--<!DOCTYPE html>-->
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+
+
+//1.shift() 方法：把数组的第一个元素删除，并返回第一个元素的值
+//		var movePos=[11,22];
+//		var arr = movePos.shift()
+//		console.log(movePos.shift())
+//		console.log(movePos)//[22]
+//		alert(movePos)//22
+		
+		//2.concat() 方法：用于连接两个或多个数组,并返回一个新数组，新数组是将参数添加到原数组中构成的 
+//		var movePos=[11,22];
+//
+//		var arr=movePos.concat(4,5);
+//		var arr = movePos.concat(33,44);//[11, 22, 4, 5]
+//		console.log(arr,1)
+//		alert(arr);//11, 22, 4, 5
+//
+//		var ar1=[2,3]
+//		var ar3=[1111,2222];
+//		var ar2=arr.concat(ar1,ar3);
+//		console.log(ar2); //[11, 22, 4, 5, 2, 3, 1111, 2222]
+//		alert(ar2); //11, 22, 4, 5, 2, 3, 1111, 2222
+//		
+//		document.write(arr.length);//4
+//		
+//		document.write(ar2.length);//8
+
+//3. join() 方法：用于把数组中的所有元素放入一个字符串。元素是通过指定的分隔符进行分隔的。
+//
+//返回一个字符串。该字符串是通过把 arrayObject 的每个元素转换为字符串，然后把这些字符串连接起来，在两个元素之间插入separator 字符串而生成的。
+//		var movePos=[11,22,33,44];
+//
+//		var arr=movePos.join(" ");
+//		document.write(arr)  //11+22
+//		console.log(arr)
+//4. pop() 方法：用于删除并返回数组的最后一个(删除元素)元素,如果数组为空则返回undefined ,把数组长度减 1
+//		var movePos=[11,22,33];
+//		var arr=movePos.pop();
+//		console.log(arr)  //33
+//		
+//		console.log(movePos.length)//2  
+
+//5.push() 方法：可向数组的末尾添加一个或多个元素，并返回新的长度，（用来改变数组长度）。
+//		var movePos=[11,22];
+//		
+//		movePos.push(33);
+//		console.log(movePos)
+//		console.log(movePos.length)
+
+//6.reverse() ：方法用于颠倒数组中元素的顺序。
+
+//		var movePos=[11,22,33];
+//		
+//		var arr=movePos.reverse();
+//		
+//		document.write(arr)  //返回新的数组：22,11
+//		
+//		console.log(arr.length)  //返回数组长度2
+
+//7.slice() 方法：可从已有的数组中返回选定的元素。slice(开始截取位置，结束截取位置) 不包括结束位置 返回截取元素数组
+
+//		var movePos=[11,22,33];
+//		
+//		var arr=movePos.slice(1,3);
+//		
+//		console.log(arr)  //返回截取的元素: [22, 33]
+//		
+//		console.log(arr.length)  //返回数组长度2,截取的数组的长度
+
+//8.splice() ：方法向/从数组中添加/删除项目，然后返回被删除的项目。
+
+//		var movePos=[11,22,33,44];
+//
+//		var arr=movePos.splice(1,2);//movePos.splice(开始删除的下表位置,删除数组元素的个数);
+//		
+//		console.log(arr) ; //返回新的数组：[22, 33]
+//		console.log(movePos) //  [11, 44]
+//		console.log(arr.length) ;//返回数组长度2
+
+//splice() 方法可删除从 index 处开始的零个或多个元素，并且用参数列表中声明的一个或多个值来替换那些被删除的元素。
+		
+//		var movePos =[111,222,333,444];
+//
+//	    movePos.splice(2,1,"666") //
+	    //movePos.splice(开始删除的下表位置,删除数组元素的个数，向数组添加的新项目。);从下标2开始删除一位，并用666替换删除下表位置的元素
+//	    console.log(movePos) //[111, 222, "666", 444]
+
+//	    var movePos =[111,222,333,444];
+//	    movePos.splice(2,0,"666")
+//	    console.log(movePos) //[111, 222, "666", 333, 444]
+
+//		var movePos =[111,222,333,444];
+//	    movePos.splice(2,2,"666")
+//	    console.log(movePos) //[111, 222, "666"]
+
+//unshift() 方法可向数组的开头添加一个或更多元素，并返回新的长度。
+//
+//9.unshift：将参数添加到原数组开头，并返回数组的长度 
+		var movePos =[111,222,333,444];
+		movePos.unshift("55555")
+		console.log(movePos) //["55555", 111, 222, 333, 444]
+		
+//10.sort(orderfunction)：按指定的参数对数组进行排序 
+		var movePos =["444","111","333","222"];
+		movePos.sort(1)
+		console.log(movePos) //["111", "222", "333", "444"]
+		
+//		var fruits = ["Banana", "Orange", "Apple", "Mango"];
+//		console.log(fruits.join('')) //BananaOrangeAppleMango
+//		console.log(fruits)
+//		var fruits = fruits.join()	
+//		console.log(fruits)    //Banana,Orange,Apple,Mango
+
+		var fruits = ["Banana", "Orange", "Apple", "Mango"];
+		var str = fruits.toString();     
+		console.log(str) //Banana,Orange,Apple,Mango
+		
+		
+		
+	</script>
+</html>

@@ -1,0 +1,39 @@
+Vue.js实现tab切换效果
+
+Vue是一个小巧轻便的JavaScript库。它有一个简单易懂的API，能够让开发者在开发web应用的时候更加简易便捷。实际上，一直让Vue引以为豪的是它的便捷性、执行力、灵活性。 
+目前在学习Vue.js。在学习的时候需要把手动操作DOM的思维去掉，因为Vue是数据驱动，不需要手动操作DOM。他通过一些特殊的hmtl语法，将DOM和数据绑定起来。一旦创建了绑定，DOM就会和数据保持同步，每当变更了数据，DOM也会相应的发生改变，更新。 
+下面是我用vue.js来实现的tab切换功能。
+
+<!--这里是html结构-->
+<div id="app">
+        <ul>
+            <li 
+            v-for="(item,index) in tabs" 
+            :class="{active:index == num}"
+             @click="tab(index)">{{item}}</li>
+        </ul>
+        <div class="tabCon">
+            <div 
+            v-for='(itemCon,index) in tabContents' 
+            v-show=" index == num">{{itemCon}}</div>
+        </div>
+    </div>
+<!--这里是js代码-->
+<script type="text/javascript">
+var vm = new Vue({
+    el: '#app',
+    data: {
+        tabs: ["标题一", "标题二","标题三"],
+        tabContents: ["内容一", "内容二","内容三"],
+        num: 1
+    },
+    methods: {
+        tab(index) {
+            this.num = index;
+        }
+    }
+});
+</script>
+
+使用vue.js实现tab切换很简单，先使用v-for把数据遍历渲染到页面上，v-for中有一个index表示索引，将index作为参数传入到tab（index）这个函数中，在data中定义一个num变量，在title中如果index==num,这个title就会添加一个acive的class。当然，这个num是需要在tab（）这个函数中不断改变的，需要将传入的索引值赋值给num，这样在.tabCon里，我们就可以用v-show做下判断。v-show=”index==num”,如果等于的话，当前的内容就会显示。否则隐藏。 
+我感觉学习vue，首先把以前的那种传统思维转变过来是主要的，其次就是不断实践，不断的敲代码，才可以更深入的学习Vue.js。

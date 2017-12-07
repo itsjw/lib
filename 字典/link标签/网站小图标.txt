@@ -1,0 +1,22 @@
+<link href="/favicon.ico" rel="shortcut icon">
+
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+
+那么如何添加网站favicon.ico图标
+
+
+ 
+
+1.获得一个favicon.ico的图标，大小为16px×16px最为合适
+
+2. 将制作好的图标文件Favicon.ico上传到网站的根目录；
+
+3. 在首页文件的html代码的头部中加入如下代码:
+
+<link rel="Shortcut Icon" href="favicon.ico" >
+
+4. 如果想收藏书签也有Favicon.ico图标，在上面那段代码下面加入
+
+<link rel="Bookmark" href="favicon.ico" >
+
+这样做以后，你的网站就可以有自己的图标了

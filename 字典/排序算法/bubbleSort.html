@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+		function bubbleSort(arr){
+			var len = arr.length;
+			for(var i=0;i<len;i++){
+				for(var j=0;j<len-1-i;j++){
+					if(arr[j] > arr[j+1]){
+						var temp = arr[j+1];
+						arr[j+1] = arr[j];
+						arr[j] = temp;
+					}
+				}
+			}
+			return arr;
+		}
+		var arr = [23,12321,123213211,3123,131,31,2321,3,21,312];
+		console.log(bubbleSort(arr))
+		
+		
+		
+		
+		
+		
+		
+		
+		function bubbleSort2(arr) {
+		    var len = arr.length;
+		    for (var i = 0; i < len; i++) {
+		        for (var j = 0; j < len - 1 - i; j++) {
+		            if (arr[j] > arr[j+1]) {        // 相邻元素两两对比
+		                var temp = arr[j+1];        // 元素交换
+		                arr[j+1] = arr[j];
+		                arr[j] = temp;
+		            }
+		        }
+		    }
+		    return arr;
+		}
+	</script>
+</html>

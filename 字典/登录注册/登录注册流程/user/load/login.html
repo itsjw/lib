@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="base.css"/>
+		<link rel="stylesheet" type="text/css" href="user.css"/>
+	</head>
+	<body>
+		<form>
+			<input type="text" name="userID" id="userID" value="" />
+			<input type="password" name="password" id="password" value="" />
+			<input type="button" name="loginBtn" id="loginBtn" value="登录" />
+		</form>
+	</body>
+	<script src="../js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+	//如果本地中有用户信息，那么直接显示出来
+		if(localStorage.getItem("userID")){
+			$("#userID").val(localStorage.getItem("userID"));
+		}
+		$("#loginBtn").on("click",function(){
+			var userID = $("#userID").val();
+			var password = $("#password").val();
+			if(userID == "" || password == ""){
+				alert("请完善输入信息");
+			}else{
+				if(true){//true表示符号正则验证   /****/.test(userID|password)
+					register(userID,password);
+				}else{
+					alert("输入数据不符合格式");
+				}
+			}
+		});
+		
+		
+		function register(userID,password){
+			$.ajax({
+				url:"http://datainfo.duapp.com/shopdata/userinfo.php",
+				type:"post",
+				data:{
+					"status":"login",
+					"userID":userID,
+					"password":password
+				},
+				success:function(data){
+
+					if(data == "0"){
+						//用户名不存在
+					}else if(data == "2"){
+						//密码错误
+						alert("密码错误")
+						$("#password").val("");
+					}else{
+						//ok
+						localStorage.setItem("isLogin","true");
+						window.location= "../index.html";
+					}
+				}
+			})
+		}
+	</script>
+</html>

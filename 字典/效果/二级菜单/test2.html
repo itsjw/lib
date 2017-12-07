@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			*{padding: 0;margin: 0;list-style: none;}
+			.nav_box{
+				margin-left: 120px;
+				position: relative;
+			}
+			.nav{position: absolute;left:0;width: 120px;}
+			.nav li{
+				width: 120px;
+				height:60px;
+				line-height: 60px;
+				border-bottom: 1px solid #ccc;
+				position: relative;
+			}
+			.navDetail{
+				position: absolute;
+				left:120px;
+			}
+			.n-d{
+				display: none;
+				position: absolute;
+				left: 120px;
+				top:0;
+				width: 400px;
+				height: 300px;
+				border: 1px solid #f66;
+			}
+			.n-d.t6{
+				top: -240px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="nav_box">
+			<ul class="nav">
+				<li>11111
+					<div class="n-d">
+						11111111
+					</div>
+				</li>
+				<li>22222
+					<div class="n-d" >
+						2222222
+					</div>
+				</li>
+				<li>33333
+					<div  class="n-d">
+						333333
+					</div>
+				</li>
+				<li>44444
+					<div  class="n-d">
+						444444
+					</div>
+				</li>
+				<li>55555
+					<div  class="n-d">
+						55555
+					</div>
+				</li>
+				<li>66666
+					<div  class="n-d t6">
+						6666666
+					</div>
+				</li>
+			</ul>
+		</div>
+	</body>
+	<script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(".nav").find("li").hover(function(){
+			$(this).find(".n-d").fadeIn(0)
+		},function(){
+			$(".nav").find("li").find(".n-d").fadeOut(0)
+		})
+	</script>
+</html>

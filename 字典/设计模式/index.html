@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>测试页</title>
+		<style type="text/css">
+			a{
+				display: block;
+				width:400px;
+				line-height:160px;
+				background: yellowgreen;
+				text-align: center;
+				font-size: 62px;
+				text-decoration: none;
+				position: absolute;
+				top:50%;
+				left:50%;
+				margin:-80px 0 0 -200px;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="https://baike.baidu.com/item/%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/1212549?fr=aladdin">设计模式</a>
+	</body>
+	<script type="text/javascript">
+		//单例模式--------------------------------------------------------------------
+		/*function a(name,age){
+			//判断a构造函数有没有生成实例
+			if(a.instanceof){
+				//如果构造函数已经生成实例则返回其对应的实例
+				return a.instanceof;
+			}else{
+				//如果构造函数没有生成实例，返回一个新建的实例
+				return a.instanceof={
+					name:name,
+					age:age
+				}
+			}
+		}
+		var A1=new a('张三',20);
+		console.log(A1)
+		var A2=new a('李四',28);
+//		console.log(A1);
+//		//因为当前为实例模式，所以A2赋值失败，A2的值为A1
+		console.log(A2);
+		console.log(A1===A2)*/
+		//代理模式---------------------------------------------------------------------
+		/*function AB(a,b){
+			//判断是否需要创建变量保存已计算过的信息
+			if(!AB.sumAll){
+				AB.sumAll={}
+			}
+			//添加计算函数
+			(function sum(a,b){
+				//判断有没有添加过此类计算
+				if(AB.sumAll[a+'+'+b]){
+					//如果添加过此次运算则返回存储的运算结果；
+					return AB.sumAll[a+'+'+b];
+				}else{
+					//如果未添加过此次运算，现将此次运算结果存储，再返回存储的运算结果；
+					console.log(AB.sumAll);
+					AB.sumAll[a+'+'+b]=a+b;
+					console.log(AB.sumAll);
+					return AB.sumAll[a+'+'+b];
+				}
+			})(a,b)
+			return AB.sumAll[a+'+'+b];
+		}
+		console.log(AB(1,2))*/
+		//适配器模式---------------------------------------------------------------------
+		/*function A(){
+			this.M=function(){
+				console.log('oppo闪充')
+			};
+			this.N=function(){
+				console.log('小绿人')
+			};
+		};
+		function B(){
+			this.J=function(){
+				console.log('2000W柔光双色')
+			};
+			this.K=function(){
+				console.log('小蓝人')
+			};
+		};
+		//创建兼容的适配器接口构造函数
+		function AB(obj){          //传入构造函数new的实例
+			//添加判断，如果存在这种方法，则调用这种方法
+			if(obj.M){
+				obj.M();
+			};
+			if(obj.N){
+				obj.N();
+			};
+			if(obj.J){
+				obj.J();
+			};
+			if(obj.K){
+				obj.K();
+			};
+		};
+		var a=new A();
+		var b=new B();
+		AB(a);
+		AB(b);*/
+//		console.log(AB(a))
+	</script>
+</html>

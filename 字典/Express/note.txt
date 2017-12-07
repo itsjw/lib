@@ -1,0 +1,36 @@
+express----nodejs的一个框架
+  http://www.expressjs.com.cn/
+  基于 Node.js 平台，快速、开放、极简的 web 开发框架
+  
+  cnpm init
+  cnpm i express --save
+  cnpm i express-generator -g
+  express myapp -e
+  cd myapp
+  cnpm i
+  
+  package.json---scripts添加
+   "dev":"supervisor ./bin/www"
+  cnpm run dev
+
+
+  如果采用的是后端提供接口的方式，就需要在app.js中添加，注意一定要在路由之前写入
+  app.all('*', function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+  //res.header("Access-Control-Allow-Headers", "X-Requested-With");
+  //res.header("Access-Control-Allow-Methods","PUT,POST,GET,DELETE,OPTIONS");
+  //res.header("X-Powered-By",' 3.2.1');
+  //res.header("Content-Type", "application/json;charset=utf-8");
+    next();
+  });
+  
+EJS 模板语言使用
+https://www.w3cschool.cn/weflow/weflow-ejs.html
+
+输出
+
+在页面中输出变量值，你可以这么用： <div><%= var01 %></div>    --  不会解析标签
+如果不希望变量值的内容被转义，那就这么用：<div><%- var02 %></div>  --- 会解析标签
+
+
+

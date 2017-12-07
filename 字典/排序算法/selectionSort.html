@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script type="text/javascript">
+		
+		function selectionSort(arr){
+			var len = arr.length;
+			var minIndex,temp;
+			for(var i=0;i<len-1;i++){
+				minIndex = i;
+				for(var j=i+1;j<len;j++){
+					if(arr[j] < arr[minIndex]){
+						minIndex = j;
+					} 
+				}
+				temp = arr[i];
+				arr[i] = arr[minIndex];
+				arr[minIndex] = temp;
+				
+			}
+			
+			return arr;
+		}
+		
+		
+		function aaa(arr){
+			var len = arr.length;
+			for(var i=0;i<len-1;i++){
+				
+				for(var j=i;j<len;j++){
+					
+					if(arr[i] == arr[j+1]){
+						arr.splice(i,1)
+					}
+				}
+			}
+			console.log(arr)
+			
+		}
+		
+		aaa([1,2,3,4,5])
+		
+		
+//		var arr = [12,2123,11,1232,323,2323,232,1314,324,132]
+//		console.log(selectionSort(arr))
+	</script>
+</html>

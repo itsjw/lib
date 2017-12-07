@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<div id="user">
+			<a href="load/login.html">登录</a>|<a href="load/register.html">注册</a>
+		</div>
+	</body>
+	<script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+			if(localStorage.getItem("isLogin") == "false"){
+				$("#user").html('<a href="load/login.html">登录</a>|<a href="load/register.html">注册</a>')
+			}else{
+				$("#user").html('欢迎你'+localStorage.getItem("userID")+'<span id="quit">[退出]</span>');
+			}
+			
+			$("#quit").on("click",function(){
+				localStorage.setItem("isLogin","false");
+				window.location="load/login.html"
+			})
+	</script>
+</html>

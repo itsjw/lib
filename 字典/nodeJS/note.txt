@@ -1,0 +1,99 @@
+打开dos命令窗口
+node --- 交互式解释器 ---- shell终端 ----- 控制台
+url
+  { Url: [Function: Url],
+  parse: [Function: urlParse],
+  resolve: [Function: urlResolve],
+  resolveObject: [Function: urlResolveObject],
+  format: [Function: urlFormat],
+  URL: [Function: URL],
+  URLSearchParams: [Function: URLSearchParams],
+  domainToASCII: [Function: domainToASCII],
+  domainToUnicode: [Function: domainToUnicode] }
+  
+url.parse("http://www.baidu.com:8000/list/food?type=cool#test");
+  Url {
+    protocol: 'http:',
+    slashes: true,
+    auth: null,
+    host: 'www.baidu.com:8000',
+    port: '8000',
+    hostname: 'www.baidu.com',
+    hash: '#test',
+    search: '?type=cool',
+    query: 'type=cool',
+    pathname: '/list/food',
+    path: '/list/food?type=cool',
+    href: 'http://www.baidu.com:8000/list/food?type=cool#test' }
+url.parse("http://www.baidu.com:8000/list/food?type=cool#test").query
+  'type=cool'
+url.parse("http://www.baidu.com:8000/list/food?type=cool#test",true)
+  Url {
+    protocol: 'http:',
+    slashes: true,
+    auth: null,
+    host: 'www.baidu.com:8000',
+    port: '8000',
+    hostname: 'www.baidu.com',
+    hash: '#test',
+    search: '?type=cool',
+    query: { type: 'cool' },
+    pathname: '/list/food',
+    path: '/list/food?type=cool',
+    href: 'http://www.baidu.com:8000/list/food?type=cool#test' }
+url.parse("http://www.baidu.com:8000/list/food?type=cool#test",true).query
+    { type: 'cool' }
+
+url.parse("http://www.baidu.com:8000/list/food?type=cool#test",true).query.type
+    'cool' 
+    
+
+url.format({
+...   protocol: 'http:',
+...   slashes: true,
+...   auth: null,
+...   host: 'www.baidu.com:8000',
+...   port: '8000',
+...   hostname: 'www.baidu.com',
+...   hash: '#test',
+...   search: '?type=cool',
+...   query: 'type=cool',
+...   pathname: '/list/food',
+...   path: '/list/food?type=cool',
+...   href: 'http://www.baidu.com:8000/list/food?type=cool#test' })
+'http://www.baidu.com:8000/list/food?type=cool#test'
+
+/表示绝对路径，会替换掉最先开始的那个，后面的也不显示-----pathname
+> url.resolve("/one/two/three","four")
+'/one/two/four'
+> url.resolve("/one/two/three","/four")
+'/four'
+>url.resolve("/one/two/three","four/five")
+'/one/two/four/five'
+>url.resolve("/one/two/three","/four/five")
+'/four/five'
+
+> querystring.parse("http://www.baidu.com:8000/list/food?type=cool#test")
+{ 'http://www.baidu.com:8000/list/food?type': 'cool#test' }
+> querystring.parse("type=cool")
+{ type: 'cool' }
+> url.parse("//www.baidu.com:8000/list/food?type=cool#test").query
+'type=cool'
+> querystring.parse(url.parse("//www.baidu.com:8000/list/food?type=cool#test").query)
+{ type: 'cool' }
+> url.parse("//www.baidu.com:8000/list/food?type=cool#test",true).query
+{ type: 'cool' }
+> querystring.stringify({ type: 'cool' })
+
+> querystring.escape({"from":"beijing"});
+'%5Bobject%20Object%5D'
+
+> querystring.escape("郑州");
+'%E9%83%91%E5%B7%9E'
+> querystring.unescape('%E9%83%91%E5%B7%9E')
+'郑州'
+
+
+
+
+

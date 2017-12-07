@@ -1,0 +1,105 @@
+.btn {
+  border: 0;
+  background-color: transparent;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  color: #fff;
+  text-align: center;
+  padding: 8px 15px;
+  font-family: "微软雅黑";
+  cursor: pointer;
+}
+.btn.btn-xs {
+  padding: 3px 5px;
+}
+.btn.btn-sm {
+  padding: 8px 15px;
+}
+.btn.btn-md {
+  padding: 12px 30px;
+}
+.btn.btn-lg {
+  padding: 15px 40px;
+}
+.btn.btn-primary {
+  background-color: #337ab7;
+}
+.btn.btn-primary:hover {
+  background-color: #2d6da3;
+}
+.btn.btn-primary:active {
+  border: 0;
+  outline: none;
+  background-color: #285f8f;
+}
+.btn.btn-primary:visited {
+  border: 0;
+  outline: none;
+  background-color: #337ab7;
+}
+.btn.btn-danger {
+  background-color: #c9302c;
+}
+.btn.btn-danger:hover {
+  background-color: #b42b27;
+}
+.btn.btn-danger:active {
+  border: 0;
+  outline: none;
+  background-color: #9f2623;
+}
+.btn.btn-danger:visited {
+  border: 0;
+  outline: none;
+  background-color: #c9302c;
+}
+.btn.btn-success {
+  background-color: #449d44;
+}
+.btn.btn-success:hover {
+  background-color: #3c8b3c;
+}
+.btn.btn-success:active {
+  border: 0;
+  outline: none;
+  background-color: #357935;
+}
+.btn.btn-success:visited {
+  border: 0;
+  outline: none;
+  background-color: #449d44;
+}
+.btn.btn-waring {
+  background-color: #ec971f;
+}
+.btn.btn-waring:hover {
+  background-color: #df8a13;
+}
+.btn.btn-waring:active {
+  border: 0;
+  outline: none;
+  background-color: #c77c11;
+}
+.btn.btn-waring:visited {
+  border: 0;
+  outline: none;
+  background-color: #ec971f;
+}
+.btn.btn-info {
+  background-color: #31b0d5;
+}
+.btn.btn-info:hover {
+  background-color: #28a1c4;
+}
+.btn.btn-info:active {
+  border: 0;
+  outline: none;
+  background-color: #2490af;
+}
+.btn.btn-info:visited {
+  border: 0;
+  outline: none;
+  background-color: #31b0d5;
+}
+/*# sourceMappingURL=button.css.map */

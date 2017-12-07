@@ -1,0 +1,22 @@
+ul.proList {
+  width: 100%;
+}
+ul.proList li {
+  width: 200px;
+  overflow: hidden;
+  float: left;
+}
+ul.proList li img {
+  width: 100%;
+}
+.proDetail .proImg {
+  float: left;
+  width: 400px;
+}
+.proDetail .proImg img {
+  width: 100%;
+}
+.proDetail .proInfo {
+  float: left;
+}
+/*# sourceMappingURL=layout.css.map */

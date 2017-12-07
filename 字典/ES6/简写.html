@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+//1、三目运算符
+//将一个完整的 if 语句，简写为一行代码。
+	
+//	const b = 20;
+//	function foo(a){
+//		if (a > 10) {
+//		console.log('a 大于 10') ;
+//		} else {
+//		console.log('a 小于  10')    ;
+//		}
+//	}
+//等同于
+//	function foo(a){
+//		console.log(a > 10 ? 'a 大于 10' : 'a 小于  10')
+//	}
+//	foo(b)
+
+//2、循环语句
+//当使用纯 JavaScript（不依赖外部库，如 jQuery 或 lodash）时，下面的简写会非常有用。
+//let arr = [1,2,3,4]
+//for (let i = 0; i < arr.length; i++){
+//	console.log(arr[i])
+//}
+//简写为：
+
+//for (let index of arr){
+//	console.log(index)
+//}
+
+//3、声明变量
+//在函数开始之前，对变量进行赋值是一种很好的习惯。
+//在申明多个变量时：
+//let x;
+//let y;
+//let z = 3;
+//可以简写为：
+
+//let x, y, z=3;
+//
+//4、if 语句
+//在使用 if 进行基本判断时，可以省略赋值运算符。
+
+//if (likeJavaScript === true)
+//简写为：
+
+//if (likeJavaScript)
+
+//5、十进制数
+//可以使用科学计数法来代替较大的数据，如可以将 10000000 简写为 1e7。
+
+//for (let i = 0; i < 10000; i++) { }
+//简写为：
+
+//for (let i = 0; i < 1e7; i++) { }
+
+//6、模版字符串
+//如果需要在代码中编写多行字符串，就像下面这样：
+
+
+//const lorem = 'Lorem ipsum dolor sit amet, consectetur'
+//  + 'adipisicing elit, sed do eiusmod tempor incididunt'
+//  + 'ut labore et dolore magna aliqua. Ut enim ad minim'
+//  + 'veniam, quis nostrud exercitation ullamco laboris'
+//  + 'nisi ut aliquip ex ea commodo consequat. Duis aute'
+//  + 'irure dolor in reprehenderit in voluptate velit esse.'
+
+//但是还有一个更简单的方法，只使用引号：
+
+
+//const lorem = `Lorem ipsum dolor sit amet, consectetur
+//	adipisicing elit, sed do eiusmod tempor incididunt
+//  ut labore et dolore magna aliqua. Ut enim ad minim
+//  veniam, quis nostrud exercitation ullamco laboris
+//  nisi ut aliquip ex ea commodo consequat. Duis aute
+//  irure dolor in reprehenderit in voluptate velit esse.`
+//
+//console.log(lorem)
+//
+//7、默认值赋值
+//如果预期参数是 null 或未定义，则不需要写六行代码来分配默认值。我们可以只使用一个简短的逻辑运算符，只用一行代码就能完成相同的操作。
+
+//	let abc;
+//	let a;
+//	if (abc) {
+//	  a = abc;
+//	} else {
+//	  a = 'bb';
+//	}
+//简写为：
+
+//const a = abc || 'bb';
+//console.log(a)
+
+//8、对象属性
+//ES6 提供了一个很简单的办法，来分配属性的对象。如果属性名与 key 名相同，则可以使用简写。
+//
+//const obj = { x:x, y:y };
+//简写为：
+//
+//const obj = { x, y };
+
+
+//9、箭头函数
+//经典函数很容易读写，但是如果把它们嵌套在其它函数中进行调用时，整个函数就会变得有些冗长和混乱。这时候可以使用箭头函数来简写：
+//
+//function sayHello(name) {
+//console.log('Hello', name);
+//}
+
+// 简写为：
+//只有一条语句可以省略{}
+//sayHello = (name) => console.log('Hello', name);
+//sayHello('aa')
+
+//10、隐式返回值
+//返回值是我们通常用来返回函数最终结果的关键字。只有一个语句的箭头函数，可以隐式返回结果（函数必须省略括号{ }，以便省略返回关键字）。
+//
+//要返回多行语句（例如对象文本），需要使用（）而不是{ }来包裹函数体。这样可以确保代码以单个语句的形式进行求值。
+//
+//function foo(a) {
+//return Math.PI * a
+//}
+//简写为：
+//
+//foo = a => (
+//	Math.PI * a
+//)
+//console.log(foo(1))
+
+//11、默认参数值
+//可以使用 if 语句来定义函数参数的默认值。ES6 中规定了可以在函数声明中定义默认值。
+//
+//function foo(a, b, c) {
+//if (b === undefined)
+//  b = 3;
+//if (c === undefined)
+//  c = 4;
+//return a * b * c;
+//}
+//
+//简写为：
+//
+//foo = (a, b = 3, c = 4 ) => (a * b * c);
+//
+//console.log(foo(2))
+
+//12、模板字符串
+//过去我们习惯了使用“+”将多个变量转换为字符串.
+//
+//ES6 提供了相应的方法，我们可以使用反引号和 $ { } 将变量合成一个字符串。
+
+//const welcome = 'You have logged in as ' + first + ' ' + last + '.'
+//简写为：
+
+//const welcome = `You have logged in as ${first} ${last}`;
+
+
+//13、解构赋值
+//解构赋值是一种表达式，用于从数组或对象中快速提取属性值，并赋给定义的变量。
+//
+//在代码简写方面，解构赋值能达到很好的效果。
+//
+//const observable = require('mobx/observable');
+//const action = require('mobx/action');
+//const runInAction = require('mobx/runInAction');
+
+//简写为：
+
+//import { observable, action, runInAction } from 'mobx';
+//13、Array.find
+//如果你曾经编写过普通 JavaScript 中的 find 函数，那么你可能使用了 for 循环。在 ES6 中，介绍了一种名为 find（）的新数组函数，可以实现 for 循环的简写。
+
+//const persons = [
+//{ type: 'man', name: 'a',age:1},
+//{ type: 'woman', name: 'b',age:2},
+//{ type: 'man', name: 'c',age:3},
+//]
+//function find(name) {
+//	for(let i = 0; i<persons.length; ++i) {
+//	    if(persons[i].type === 'man' && persons[i].name === name) {
+//	      return persons[i];
+//	    }
+//	}
+//}
+//console.log(find('c')); 
+////简写为：
+//
+//per = persons.find(persons => persons.type ==='man' && persons.name === 'c');
+//console.log(per); 
+
+		</script>
+	</body>
+</html>

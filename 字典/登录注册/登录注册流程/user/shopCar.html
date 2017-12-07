@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			
+			img{
+				width: 100px;
+
+			}
+		</style>
+	</head>
+	<body>
+		<table border="" cellspacing="" cellpadding="" id="table">
+			<tr><th>图片</thdata[index].proPricedata[index].proName><th>名称</th><th>价格</th><th>数量</th></tr>
+			<!--<tr>
+				<td><img src="img/banner.jpg"/></td>
+				<td>产品一</td>
+				<td>￥12</td>
+				<td>1</td>
+			</tr>-->
+		</table>
+	</body>
+	<script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		console.log(localStorage.getItem("shopCarData"))
+		var str = localStorage.getItem("shopCarData");
+		str = "["+str+"]";
+		var data = JSON.parse(str);
+		console.log(data)
+		for(var i in data){
+			creatList(data[i].id);
+		}
+		
+		
+		
+		
+		function creatList(index){
+			$.getJSON("data/pro.json",function(data){
+				$("#table").append('<tr>'+
+				'<td><img src="'+data[index].proImg+'"/></td>'+
+				'<td>'+data[index].proName+'</td>'+
+				'<td>￥'+data[index].proPrice+'</td>'+
+				'<td>1</td>'+
+			'</tr>')
+			});
+		}
+	</script>
+</html>

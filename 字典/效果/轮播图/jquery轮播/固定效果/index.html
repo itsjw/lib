@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/layout.css"/>
+	</head>
+	<body>
+		<div class="banner" id="banner1">
+			<div class="page_box">
+				<!--<div class="page_slide show">
+					<img src="img/banner1.jpg" alt="" />
+				</div>
+				<div class="page_slide hide">
+					<img src="img/banner2.jpg" alt="" />
+				</div>
+				<div class="page_slide hide">
+					<img src="img/banner3.jpg" alt="" />
+				</div>-->
+			</div>
+			<div class="controlBtn">
+				<span class="prevBtn">左</span>
+				<span class="nextBtn">右</span>
+			</div>
+			<ul class="points">
+				<!--<li class="active"></li>
+				<li></li>
+				<li></li>-->
+			</ul>
+		</div>
+		<div class="banner" id="banner2">
+			<div class="page_box">
+				
+			</div>
+			<div class="controlBtn">
+				<span class="prevBtn">左</span>
+				<span class="nextBtn">右</span>
+			</div>
+			<ul class="points">
+				
+			</ul>
+		</div>
+		<div class="banner" id="banner3">
+			<div class="page_box">
+				
+			</div>
+			<div class="controlBtn">
+				<span class="prevBtn">左</span>
+				<span class="nextBtn">右</span>
+			</div>
+			<ul class="points">
+			
+			</ul>
+		</div>
+	</body>
+	<script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+		
+	<script src="js/jquery.slide.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$.getJSON("data/banner.json",function(data){
+			console.log(data)
+			var result1 = data.banner1;
+			var result2 = data.banner2;
+			var result3 = data.banner3;
+			creat(result1,"#banner1",2000,"fade");
+			creat(result2,"#banner2",3000,"slideLR");
+			creat(result3,"#banner3",4000,"fade");
+		});
+		
+		function creat(result,ele,autoTime,type){
+			
+			var $page_box = $(ele).find(".page_box");
+			var len = result.length;
+			var str = "";
+			for(var i in result){
+				if(i == 0){
+					str += '<div class="page_slide show">'+
+						'<img src="'+result[i].imgSrc+'" alt="" />'+
+					'</div>';
+				}else{
+					str += '<div class="page_slide hide">'+
+						'<img src="'+result[i].imgSrc+'" alt="" />'+
+					'</div>';
+				}
+			}
+			$page_box.html(str);
+			if(type == "fade"){
+				$(ele).fade(autoTime);
+			}else{
+				$(ele).slideLR(autoTime);
+			}
+			
+		}
+	</script>
+</html>

@@ -1,0 +1,148 @@
+@btnPrimary:#337ab7;
+@btnDanger:#c9302c;
+@btnSuccess:#449d44;
+@btnWaring:#ec971f;
+@btnInfo:#31b0d5;
+
+.borRadius(@r){
+    -webkit-border-radius: @r;
+    -moz-border-radius: @r;
+    border-radius: @r;
+}
+//亮度降低
+.bgColor(dark,@color,@p){
+    background-color: darken(@color,@p);
+}
+//亮度增加
+.bgColor(light,@color,@p){
+    background-color: lighten(@color,@p);
+}
+.btn{
+    border: 0;
+    background-color: transparent;
+    .borRadius(5px);
+    color: #fff;
+    text-align: center;
+    padding: 8px 15px;
+    font-family: "微软雅黑";
+    cursor: pointer;
+//  letter-spacing: 5px;
+    //手机
+    &.btn-xs{
+        padding: 3px 5px;
+    }
+    //平板
+    &.btn-sm{
+        padding: 8px 15px;
+    }
+    //小屏
+    &.btn-md{
+        padding: 12px 30px;
+    }
+    //大屏
+    &.btn-lg{
+        padding: 15px 40px;
+    }
+    
+    &.btn-primary{
+        background-color: @btnPrimary;
+        
+        
+        &:hover{
+            //饱和度降低
+//          background-color: desaturate(@btnPrimary,15%);
+            .bgColor(dark,@btnPrimary,5%);
+        }
+        &:active{
+            border: 0;
+            outline: none;
+            .bgColor(dark,@btnPrimary,10%);
+//          background-color: desaturate(@btnPrimary,30%);
+        }
+        &:visited{
+            border: 0;
+            outline: none;
+            background-color: @btnPrimary;
+        }
+    }
+    &.btn-danger{
+        background-color: @btnDanger;
+        
+        
+        &:hover{
+            .bgColor(dark,@btnDanger,5%);
+//          background-color: desaturate(@btnDanger,15%);
+        }
+        &:active{
+            border: 0;
+            outline: none;
+             .bgColor(dark,@btnDanger,10%);
+//          background-color: desaturate(@btnDanger,30%);
+        }
+        &:visited{
+            border: 0;
+            outline: none;
+            background-color: @btnDanger;
+        }
+    }
+     &.btn-success{
+        background-color: @btnSuccess;
+        
+        
+        &:hover{
+            .bgColor(dark,@btnSuccess,5%);
+//          background-color: desaturate(@btnDanger,15%);
+        }
+        &:active{
+            border: 0;
+            outline: none;
+             .bgColor(dark,@btnSuccess,10%);
+//          background-color: desaturate(@btnDanger,30%);
+        }
+        &:visited{
+            border: 0;
+            outline: none;
+            background-color: @btnSuccess;
+        }
+    }
+     &.btn-waring{
+        background-color: @btnWaring;
+        
+        
+        &:hover{
+            .bgColor(dark,@btnWaring,5%);
+//          background-color: desaturate(@btnDanger,15%);
+        }
+        &:active{
+            border: 0;
+            outline: none;
+             .bgColor(dark,@btnWaring,10%);
+//          background-color: desaturate(@btnDanger,30%);
+        }
+        &:visited{
+            border: 0;
+            outline: none;
+            background-color: @btnWaring;
+        }
+    }
+     &.btn-info{
+        background-color: @btnInfo;
+        
+        
+        &:hover{
+            .bgColor(dark,@btnInfo,5%);
+//          background-color: desaturate(@btnDanger,15%);
+        }
+        &:active{
+            border: 0;
+            outline: none;
+             .bgColor(dark,@btnInfo,10%);
+//          background-color: desaturate(@btnDanger,30%);
+        }
+        &:visited{
+            border: 0;
+            outline: none;
+            background-color: @btnInfo;
+        }
+    }
+}

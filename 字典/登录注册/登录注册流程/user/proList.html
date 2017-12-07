@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/reset.css"/>
+		<link rel="stylesheet" type="text/css" href="css/layout.css"/>
+	</head>
+	<body>
+		<input type="button" name="sortPrice" id="sortPrice" value="排序" />
+		<ul class="proList" id="proList">
+			<!--<li >
+				<img src="img/banner.jpg" alt="" />
+				<p>产品1</p>
+			</li>
+			<li>
+				<img src="img/banner.jpg" alt="" />
+				<p>产品1</p>
+			</li>
+			<li>
+				<img src="img/banner.jpg" alt="" />
+				<p>产品1</p>
+			</li>-->
+			
+		</ul>
+	</body>
+	<script src="js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+	var a = [ 1,5,2,7,6];
+	a.sort(function(x,y){
+		return x-y;
+	});
+	console.log(a);
+	var count = 0;
+	$("#sortPrice").on("click",function(){
+		count++;
+		if(count % 2 == 0){
+			createList("low");
+		}else{
+			createList("high");
+		}
+		
+	});
+		createList();
+		function createList(type){
+			$.getJSON("data/pro.json",function(data){
+			console.log(data)
+			
+			if(type == "high"){
+				data.sort(function(x,y){
+					return x.proPrice - y.proPrice;
+				})
+			}else if(type == "low"){
+				data.sort(function(x,y){
+					return y.proPrice - x.proPrice;
+				})
+			}
+			$("#proList").html("");
+			for(var i in data){
+				$("#proList").append('<li goodsID="'+data[i].id+'">'+
+					'<img src="'+data[i].proImg+'" alt="" />'+
+					'<p>'+data[i].proName+'</p>'+
+					'<p>'+data[i].proPrice+'</p>'+
+				'</li>')
+				}
+			
+			$("#proList").find("li").on("click",function(){
+				var goodsID = $(this).attr("goodsID");
+				localStorage.setItem("proActiveID",goodsID);
+				window.open("detail.html");
+//				alert(goodsID)
+			});
+		});
+		}
+	</script>
+</html>

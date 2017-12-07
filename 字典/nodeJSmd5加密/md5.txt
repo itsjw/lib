@@ -1,0 +1,8 @@
+var md5 = require('md5');
+var str = md5('11111');
+console.log(str)//b0baee9d279d34fa1dfd71aadb908c3f
+
+//项目目录下安装
+//C:\Users\Administrator\Documents\HBuilderProjects\第三阶段\day10-12\course>cnpm i md5 --save
+
+//md5解密

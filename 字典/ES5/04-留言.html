@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<textarea id="ipt" name="" rows="" cols=""></textarea>
+		<button id="btn">发表</button>
+		
+		
+		<ul id="content">
+			
+			
+		</ul>
+		
+		
+		
+	</body>
+	<script>
+		var btn = document.getElementById('btn');
+		var ipt = document.getElementById('ipt');
+		var ul = document.getElementById('content');
+		
+		btn.onclick = function(){
+			
+			var html =  '<li>'+ ipt.value  +'</li>';
+			
+			ul.innerHTML = ul.innerHTML +  html;
+			
+			
+		}
+		
+		
+	</script>
+</html>

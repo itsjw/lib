@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			
+			var arr =  [1,2,3,4,5];
+			arr = arr.filter(function(value,index){
+				if(index == 0){
+					return false;
+				}else{
+					return true;
+				}
+			})
+			console.log(arr)
+			
+			
+			var arr1 = [1,2,3,4,5];
+			//splice   
+//			第一个参数 要删除元素的 索引
+//			第二个参数  要删除元素个数
+
+			arr1.splice(2,3);
+		
+			console.log(arr1)
+			//        第三个参数  要增加的元素
+			
+			
+			//插入
+			var arr2 = [1,2,3,4,5];
+			arr2.splice(2,0,1000);
+			console.log(arr2)
+			
+			
+			//替换 
+			
+			var arr3 = [1,2,3,4,5];
+			arr3.splice(2,1,300);
+			console.log(arr3)
+			
+		</script>
+	</head>
+	
+	<body>
+	</body>
+</html>

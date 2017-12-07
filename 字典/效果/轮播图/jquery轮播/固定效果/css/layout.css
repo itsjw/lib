@@ -1,0 +1,85 @@
+.show {
+  display: block;
+}
+.hide {
+  display: none;
+}
+.banner {
+  width: 800px;
+  height: 400px;
+  margin: 20px auto;
+  overflow: hidden;
+  position: relative;
+}
+.banner#banner2 {
+  width: 500px;
+  height: 300px;
+}
+.banner#banner3 {
+  width: 700px;
+  height: 300px;
+}
+.banner .page_box {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+.banner .page_box .page_slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.banner .page_box .page_slide img {
+  width: 100%;
+  height: 100%;
+}
+.banner .controlBtn {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  color: #f66;
+  font-size: 100px;
+}
+.banner .controlBtn .prevBtn,
+.banner .controlBtn .nextBtn {
+  cursor: pointer;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.banner .controlBtn .prevBtn {
+  position: absolute;
+  display: block;
+  left: 10px;
+}
+.banner .controlBtn .nextBtn {
+  position: absolute;
+  display: block;
+  right: 10px;
+}
+.banner .points {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  -moz-transform: translateX(-50%);
+  -ms-transform: translateX(-50%);
+  transform: translateX(-50%);
+  bottom: 10px;
+}
+.banner .points li {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color: #000;
+  float: left;
+  margin-right: 5px;
+  cursor: pointer;
+}
+.banner .points li.active {
+  background-color: #fff;
+}
+/*# sourceMappingURL=layout.css.map */

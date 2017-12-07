@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="base.css"/>
+		<link rel="stylesheet" type="text/css" href="user.css"/>
+	</head>
+	<body>
+		<form>
+			<input type="text" name="userID" id="userID" value="" />
+			<input type="password" name="password" id="password" value="" />
+			<input type="button" name="registerBtn" id="registerBtn" value="注册" />
+		</form>
+	</body>
+	<script src="../js/jquery-1.11.0.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$("#registerBtn").on("click",function(){
+			var userID = $("#userID").val();
+			var password = $("#password").val();
+			if(userID == "" || password == ""){
+				alert("请完善输入信息");
+			}else{
+				if(true){//true表示符号正则验证   /****/.test(userID|password)
+					register(userID,password);
+				}else{
+					alert("输入数据不符合格式");
+				}
+			}
+		});
+		
+		
+		function register(userID,password){
+//			$.post("http://datainfo.duapp.com/shopdata/userinfo.php",{
+//				"status":"register",
+//				"userID":userID,
+//				"password":password
+//			},function(data){
+////				console.log(data)
+//				$.getScript("test.js");
+//			});
+			$.ajax({
+				url:"http://datainfo.duapp.com/shopdata/userinfo.php",
+				type:"post",
+				data:{
+					"status":"register",
+					"userID":userID,
+					"password":password
+				},
+				success:function(data){
+//					$.getScript("test.js");
+
+					if(data == "1"){
+						//如果注册成功，标识未登录状态
+						localStorage.setItem("isLogin","false");
+						//保存用户名信息
+						localStorage.setItem("userID",userID);
+						window.location = "login.html"
+					}
+				}
+			})
+		}
+	</script>
+</html>

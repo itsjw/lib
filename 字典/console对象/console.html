@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<!--1.显示信息的命令-->
+		<!--<script type="text/javascript">
+	        console.log('hello');   //显示信息
+	        console.info('信息');    //显示提示性信息
+	        console.error('错误');   //显示错误信息
+	        console.warn('警告');    //显示警告信息
+	    </script>-->
+	    
+	    <!--2.占位符 
+	    	console上述的集中度支持printf的占位符格式，支持的占位符有：字符（%s）、整数（%d或%i）、浮点数（%f）和对象（%o）
+	    -->
+	    <!--<script type="text/javascript">
+		    console.log("%d年%d月%d日",2011,3,26);
+		</script>-->
+		
+		<!--3.信息分组-->
+	    <!--<script type="text/javascript">
+		    console.group("第一组信息");    //开始分组   　　　　
+		    console.log("第一组第一条:我的博客(http://cllgeek.github.io)");
+		    console.log("第一组第二条:blog(http://www.cllgeek.com)");
+		    console.groupEnd();    //分组结束
+		    console.group("第二组信息");
+		    console.log("第二组第一条:程序爱好者： 495489065");
+		    console.log("第二组第二条:欢迎你加入");
+		    console.groupEnd();
+		</script>-->
+		
+		<!--4.查看对象的信息
+			console.dir()可以显示一个对象所有的属性和方法。
+		-->
+	    <script type="text/javascript">
+		    var info = {
+			    blog: "http://cllgeek.github.io",
+			    QQ : 495489065,
+			    message: "程序爱好者欢迎你的加入"
+			};
+			console.dir(info);    //个人感觉和console.log没有太区别
+			console.log(info);
+		</script>
+		
+		<!--5.显示某个节点的内容
+			console.dirxml()用来显示网页的某个节点（node）所包含的html/xml代码。
+		-->
+	    <!--<div id="info">
+	        <h3>我的博客：cllgeek.github.io</h3>
+	        <p>程序爱好者:495489065,欢迎你的加入</p>
+	    </div>
+	    <script type="text/javascript">
+		    var info = document.getElementById('info');
+		    console.dirxml(info);   //个人感觉和console.log没有太区别
+		    console.log(info);
+	    </script>-->
+	    
+	    <!--6.判断变量是否是真
+			console.assert()用来判断一个表达式或变量是否为真。如果结果为否，则在控制台输出一条相应信息，并且抛出一个异常。
+		-->
+	    <!--<script type="text/javascript">
+			var result = 1;
+	        console.assert( result );
+	        var year = 2014;
+	        console.assert(year == 2018 );          //实验失败，报错68行------Assertion failed:console.assert
+		</script>-->
+		
+		<!--7.追踪函数的调用轨迹
+			console.trace()用来追踪函数的调用轨迹。
+		-->
+	    <!--<script type="text/javascript">
+		    /*函数是如何被调用的，在其中加入console.trace()方法就可以了,打印结果与预料相反*/ 　　
+			function add(a, b) {
+			    console.trace();　　　　
+			    return a + b;　　
+			}　　
+			var x = add3(1, 1);　　
+			function add3(a, b) {
+			    return add2(a, b);
+			}　　
+			function add2(a, b) {
+			    return add1(a, b);
+			}　　
+			function add1(a, b) {
+			    return add(a, b);
+			}
+	    </script>-->
+	    
+		<!--8.计时功能
+			console.time()和console.timeEnd()，用来显示代码的运行时间（单位毫秒）。
+		-->
+	    <!--<script type="text/javascript">
+		    console.time("控制台计时器一");　　 //开始计时    （没有结束标志不打印结果）
+			for (var i = 0; i < 1000; i++) {　　　　
+			    for (var j = 0; j < 1000; j++) {}　　
+			}　　
+			console.timeEnd("控制台计时器一");  //结束计时  打印计时结果      （没有开始标志，计时器结果为0ms）
+	    </script>-->
+	    
+		<!--9.console.profile()的性能分析
+			性能分析（Profiler）就是分析程序各个部分的运行时间，找出瓶颈所在，使用的方法是console.profile()
+		-->
+	    <!--<script type="text/javascript">
+			function Foo(){
+				for(var i=0;i<10;i++){funcA(1000);}
+					funcB(10000);
+			}
+			function funcA(count){
+				for(var i=0;i<count;i++){}
+			}
+			function funcB(count){
+				for(var i=0;i<count;i++){}
+			}
+			console.profile('性能分析器');　　 //开始分析
+			Foo();　　//分析对象
+			console.profileEnd();    //结束分析   打印结果与预料不符
+			//实际打印:
+			/*Profile '性能分析器' started.
+			Profile '性能分析器' finished.*/
+			//大神说打印:
+			/*控制台会显示一张性能分析表
+			http://www.cnblogs.com/kiter/p/3943342.html
+			*/
+		</script>-->
+	</body>
+	
+</html>

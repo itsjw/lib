@@ -1,0 +1,21 @@
+@inputBgColor:#f66;
+
+form{
+    input{
+        display:block;
+        background-color: @inputBgColor;
+        .noBorder(0px);
+        margin-top: 10px;
+        width: 50%;
+        height: 50px;
+        text-indent: 15px;
+        font-size:24px;
+    }
+    input#registerBtn{
+        color: #fff;
+        cursor: ;
+    }
+}
+.noBorder(@r:5px){
+    border: @r solid #000;
+}

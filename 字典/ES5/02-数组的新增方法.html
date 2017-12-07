@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			// 
+			var arr = [5, 1, 3, 2, 4];
+
+			//遍历数组
+			// callback  Function  回调函数
+
+			function box(value, index, arr) {
+
+				//				第二个参数为可选的上下文参数（改变this指向）
+				console.log(value, index, arr, this)
+
+			}
+			var dog = { name: '旺财' }
+			arr.forEach(box, dog);
+
+			var arr = [5, 1, 3, 2, 4];
+
+			var res = arr.map(function(value, index) {
+				console.log(value, index)
+				return value * 1.3;
+			});
+			console.log(res);
+
+			var arr = [5, 1, 3, 2, 4];
+			var res = arr.filter(function(value, index) {
+				console.log(11111);
+				//filter的callback函数需要返回布尔值true（通过过滤）或false
+//				if(index == 2){ //删除下标为2 的元素
+//					return false;
+//				}else{
+//					return true;
+//				}
+
+				if(value == 3){  //删除 值为3 的元素
+					return false;
+				}else{
+					return true;
+				}
+			})
+			console.log(res);
+			
+			var arr = [5, 1, 3, 2, 4];
+			
+			 var res = arr.indexOf(1,2)
+			console.log(res+'=------');
+			
+			
+			
+			var sum = [1,2,3,4].reduce(function(previous,current,index){
+				
+				console.log(previous,current,index);
+
+				return  previous +current;
+			},10)
+		
+			console.log(sum);
+			
+			
+			
+			
+		</script>
+	</head>
+
+	<body>
+	</body>
+
+</html>

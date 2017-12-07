@@ -1,0 +1,98 @@
+3、File System
+		得到文件与目录的信息：stat
+		创建一个目录：mkdir
+		创建文件并写入内容：writeFile,appendFile
+		读取文件的内容：readFile
+		列出目录的东西：readdir
+		重命名目录或文件：rename
+		删除目录与文件：rmdir,unlink
+			
+			创建fs_1.js---查看状态
+			
+				const fs = require('fs')
+
+				fs.stat('hello.js', (error, stats) =>{
+				  if(error){
+				    console.log(error)
+				  } else {
+				    console.log(stats)
+				    console.log(`文件：${stats.isFile()}`)
+				    console.log(`目录：${stats.isDirectory()}`)
+				  }
+				})
+			
+			创建fs_2.js---创建目录
+				const fs = require('fs')
+				fs.mkdir('logs', (error) => {
+				  if(error){
+				    console.log(error)
+				  } else {
+				    console.log('成功创建目录：logs')
+				  }
+				})
+			
+			创建fs_3.js---写入文件
+				const fs = require('fs')
+				fs.writeFile('logs/hello.log', '您好 ~ \n', (error) => {
+				  if(error) {
+				    console.log(error)
+				  } else {
+				    console.log('成功写入文件')
+				  }
+				})
+				
+				fs.appendFile('logs/hello.log', 'hello ~ \n', (error) => {
+				  if(error) {
+				    console.log(error)
+				  } else {
+				    console.log('成功写入文件')
+				  }
+				})
+
+			创建fs_4.js---读取文件
+				const fs = require('fs')
+				fs.readFile('logs/hello.log', 'utf8', (error, data) =>{
+				  if (error) {
+				    console.log(error)
+				  } else {
+				    console.log(data)
+				  }
+				})
+			创建fs_5.js---读取文件夹
+				const fs = require('fs')
+				fs.readdir('logs', (error, files) => {
+				  if (error) {
+				    console.log(error)
+				  } else {
+				    console.log(files)
+				  }
+				})
+			创建fs_6.js--文件重命名
+				const fs = require('fs')
+				fs.rename('logs/hello.log', 'logs/greeting.log', (error) =>{
+				  if (error) {
+				    console.log(error)
+				  } else {
+				    console.log('重命名成功')
+				  }
+				})
+
+			创建fs_7.js--删除目录
+				const fs = require('fs')
+				fs.readdirSync('logs').map((file) => {
+				  fs.unlink(`logs/${file}`, (error) => {
+				    if (error) {
+				      console.log(error)
+				    } else {
+				      console.log(`成功的删除了文件: ${file}`)
+				    }
+				  })
+				})
+				
+				fs.rmdir('logs', (error) =>{
+				  if (error) {
+				    console.log(error)
+				  } else {
+				    console.log('成功的删除了目录：logs')
+				  }
+				})
